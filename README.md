@@ -1,4 +1,4 @@
-![gameplay image](XXX) 
+![Web application image](XXX) 
 # Milestone Project 3 - XXX
 # Table of Contents
 * [Introduction](XXX)
@@ -52,9 +52,9 @@ The project is part of a Full Stack Developer course run by CodeInstitute. This 
 
 ## Milestone Project 3
 
-A mockup of the game can be seen below:
+A mockup of the web application can be seen below:
 
-![Game Mockup Image](XXX)
+![Mockup Image](XXX)
 
 # User Experience Design
 ## User Stories
@@ -83,13 +83,13 @@ Shown below are elements that correspond to some of the User Stories:
 ### Colors
 The main colors and design aim... XXX
 ### Typography
-The text throughout the game XXX font.
+The text throughout the web application is XXX font.
 ### Images
 "XXX" 
 ### Sounds
 "XXX"
 ### Wireframes
-Wireframes images can be seen below and also found in the "/assets/readme-content" folder. It contains a design for the desktop and mobile version of the game (images below show the game page Wireframes).
+Wireframes images can be seen below and also found in the "/assets/readme-content" folder. It contains a design for the desktop and mobile version of the web application.
 
 * Mobile: <br> ![Mobile Wireframe](XXX)
 * Desktop: <br> ![Desktop Wireframe](XXX)
@@ -102,7 +102,7 @@ Compared to the original Wireframe there have been multiple deviations.
 * "the item changed""
 > "changed how and why"
 
-Note: these changes were applied to both the desktop and mobile version of the game.
+Note: these changes were applied to both the desktop and mobile version of the web application.
 
 ## Limitations
 Currently, there some limitations:
