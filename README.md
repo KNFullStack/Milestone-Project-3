@@ -1,108 +1,258 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![gameplay image](XXX) 
+# Milestone Project 3 - XXX
+# Table of Contents
+* [Introduction](XXX)
+* [User Experience Design](XXX)  
+  * [User Stories](XXX)
+    * [First Time Visitors](XXX)
+    * [Returning Visitors](X)
+    * [Frequent Users](X)
+    * [User Story Screenshots](XXX)
+  * [Structure](XXX)
+  * [Design](XXX)
+    * [Colors](XXX)
+    * [Typography](XXX)
+    * [Images](XXX)
+    * [Sounds](XXX)
+    * [Wireframes](X)
+    * [Design Deviations](XXX)
+  * [Limitations](XXX)
+* [Features](XXX)
+  * [Current Features](XXX)
+  * [Future Features](XXX)
+* [Technologies](XXX)
+  * [Languages](XXX)
+  * [Libraries, Frameworks & Programs Used](XXX)
+* [Testing](XXX)
+  * [Validation](XXX)
+    * [HTML Validation](XXX)
+    * [CSS Validation](XXX)
+    * [JavaScript Validation](XXX)
+    * [Python Validation](XXX)
+  * [User Scenarios - Testing](XXX)
+    * [First Time User](XXX)
+    * [Returning User](XXX)
+    * [Frequent User](XXX)
+  * [User Testing](XXX)
+  * [Currently Known Bugs](XXX)
+  * [Major Bugs Fixed During Development](XXX)
+  * [Lighthouse Results](XXX)
+* [Deployment](XXX)
+   * [Project Creation](XXX)
+   * [Publishing](XXX)
+   * [Local Clone](XXX)
+* [Acknowledgements](XXX)
+  * [Code](XXX)
+  * [Media](XXX)
 
-Welcome USER_NAME,
+You can find the published website here: [Milestone Project 3](XXX).
+# Introduction
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The project is part of a Full Stack Developer course run by CodeInstitute. This is Milestone Project 3. This project was to create a full stack web application with CRUD functionality.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Milestone Project 3
 
-## Gitpod Reminders
+A mockup of the game can be seen below:
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+![Game Mockup Image](XXX)
 
-`python3 -m http.server`
+# User Experience Design
+## User Stories
+### First Time Visitors
+* What would I want to see as a first time visitor?
+  1. 
+  2. 
+### Returning Visitors
+* What would I want to see as a returning visitor?
+  1. 
+  2. 
+### Frequent Users
+* What would I want to see as a frequent visitor?
+  1. 
+  2. 
 
-A blue button should appear to click: _Make Public_,
+### User Story Screenshots
+Below are screenshots relating to some of the user stories.
 
-Another blue button should appear to click: _Open Browser_.
+## Structure
+Shown below are elements that correspond to some of the User Stories:
+* "thing to correspond to story"
+> "story here"
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Design
+### Colors
+The main colors and design aim... XXX
+### Typography
+The text throughout the game XXX font.
+### Images
+"XXX" 
+### Sounds
+"XXX"
+### Wireframes
+Wireframes images can be seen below and also found in the "/assets/readme-content" folder. It contains a design for the desktop and mobile version of the game (images below show the game page Wireframes).
 
-A blue button should appear to click: _Make Public_,
+* Mobile: <br> ![Mobile Wireframe](XXX)
+* Desktop: <br> ![Desktop Wireframe](XXX)
 
-Another blue button should appear to click: _Open Browser_.
+See link for PDF below:
+* [Wireframe](XXX)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Design Deviations
+Compared to the original Wireframe there have been multiple deviations.
+* "the item changed""
+> "changed how and why"
 
-To log into the Heroku toolbelt CLI:
+Note: these changes were applied to both the desktop and mobile version of the game.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Limitations
+Currently, there some limitations:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+* XXX
+* XXX
 
-------
+# Features
+## Current Features
+* XXX
+* XXX
 
-## Release History
+## Future Features
+Features that could be released in subsequent versions include:
+* XXX
+* XXX
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+# Technologies
+Technologies used are as follows.
+## Languages
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+  * Used as the main language to code the web applications content.
+* [CSS3](https://en.wikipedia.org/wiki/CSS)
+  * Used to incorporate custom styling into the web application and its layout.
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+  * Used to create interactive elements.
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+  * Used to create the back end of the web application.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Libraries, Frameworks & Programs Used
+* [Balsamiq](https://balsamiq.com/)
+   * Used to create the wireframes when starting the design.
+* [Font Awesome](https://fontawesome.com/)
+   * Used for multiple icons throughout the website.
+* [Google Fonts](https://fonts.google.com/)
+   * Used to incorporate the font "Roboto" by Christian Robertson.
+* [Techsini](http://techsini.com/multi-mockup/index.php)
+   * Used to generate the mockup image in this README file, see above.
+* [GitHub](https://github.com/)
+   * Used as a storage location for the website's content, including code and assets.
+* [GitPod](https://www.gitpod.io/)
+   * An online IDE used to write and test code that is written.
+* [Git](https://git-scm.com/)
+   * Used for version control to add, commit, and push files to GitHub.
+* [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)
+   * Used to test different CSS styles in the browser, inspect pages, general debugging, confirming JavaScript functionality with the Console and using Lighthouse.
+* [favicon.cc](https://www.favicon.cc/)
+    * Used to create the favicon.ico.
+* [FreeConvert](https://www.freeconvert.com/video-compressor/)
+    * Used to compress files.
+* [W3C HTML Validator](https://validator.w3.org/)
+    * Used to validate the HTML code.
+* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+    * Used to validate the CSS code.
+* [JSHint](https://jshint.com/)
+    * Used to validate the JavaScript code.
+* [PYTHON VALIDATION](https://extendsclass.com/python-tester.html) XXX CONFIRM IF SUITABLE XXX
+    * Used to validate the Python code.
+* [MongoDB](https://www.mongodb.com/)
+    * Used as the cloud database provider.
+* [Heroku](https://www.heroku.com/)
+    * Used as the cloud web application host.
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+    * xxx
+* [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+    * xxx
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+# Testing
+XXX TESTING XXX
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+Test Results can be found here: [Test Results](XXX)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Validation
+### HTML Validation
+HTML files were run through the [W3C HTML Validator](https://validator.w3.org/), via the direct input method.
+* WARNINGS? XXX
+### CSS Validation
+CSS Stylesheet was run through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), via the direct input method.
+* WARNINGS? XXX
+### JavaScript Validation
+JavaScript file was run through the [JSHint](https://jshint.com/).
+* WARNINGS? XXX
+### Python Validation
+Python files were run through the [JSHint](https://jshint.com/).
+* WARNINGS? XXX
+## User Scenarios - Testing
+How does the web application design enable the goals of a first time, returning and frequent user?<br>
+### First Time User
+* XXX STORY
+  * COMMENT ON STORY.
+### Returning User
+* XXX STORY
+  * COMMENT ON STORY.
+### Frequent User
+* XXX STORY
+  * COMMENT ON STORY.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## User Testing
+A user kindly volunteered to test the web application once overall development was complete.
+User's comments were as follows:
+* XXX WHAT DID THEY NOTICE?
+  * WHAT DID I DO? XXX
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Currently Known Bugs
+1. XXX
+2. XXX
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Major Bugs Fixed During Development
+1. XXX
+2. XXX
+3. XXX
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+## Lighthouse Results
+Images below show the Lighthouse results on both mobile and desktop:
+1. Mobile:<br>![Mobile Lighthouse](XXX)
+1. Desktop:<br>![Desktop Lighthouse](XXX)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+# Deployment
+## Project Creation
+To create the project, firstly a Chrome extension called "[Gitpod - Always ready to code](https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki?hl=en-GB)" was installed. A CodeInstitute template was use by navigating to the [GitHub Repo](https://github.com/Code-Institute-Org/gitpod-full-template) and clicking the "Use this template" button. The repository was named "Milestone-Project-3", the checkbox for "Include all branches" was checked and the green "Create repository from template" button was then clicked. From here, the green "GitPod" was then clicked (must use the above extension) and project folders and files created.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+Common Git commands were used as follows:
+* git add "filename-here" - used to stage files before commiting them.
+* git add . - used to stage all files before commiting them.
+* git commit -m "message here" - used to commit changes to the local repositry, with the message containing information on the changes that have occured.
+* git status - used to check the tracking status of the file in the project.
+* git push - used to push the changes to the GitHub repository.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Publishing
+To publish the project I performed the following steps:
+1. XXX HOW DID I DEPLOY TO HEROKU?
+2. XXX HOW DID I DEPLOY TO HEROKU?
+3. XXX HOW DID I DEPLOY TO HEROKU?
+4. XXX HOW DID I DEPLOY TO HEROKU?
+5. XXX HOW DID I DEPLOY TO HEROKU?
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Local Clone
+To create a local clone of the project you can follow the steps below:
+1. Navigate to the project's [Github page](https://github.com/KNFullStack/Milestone-Project-3).
+2. Click the "Code" dropdown button.
+3. From here there are two options:
+     * Option 1: Click the "Download ZIP" button to download the files. This can be unzipped locally and opened with your preferred IDE.
+     * Option 2: Copy the link from the HTTPS box shown. Then open your preferred IDE of choice and in the terminal window of your preferred directory, use the command "git clone" followed by the link that was copied. For example "git clone https://github.com/KNFullStack/Milestone-Project-3.git". This will clone the files in the selected directory.
+# Acknowledgements
+Would like to say thank you to my mentor Spencer Barriball for his help and guidance throughout the project.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Code
+* XXX
+* XXX
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+## Media
+* XXX
+* XXX
