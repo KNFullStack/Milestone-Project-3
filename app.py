@@ -22,7 +22,12 @@ mongo = PyMongo(app)
 @app.route("/")
 def home():
     tests = mongo.db.testing.find()
-    return render_template("index.html", tests=tests)
+    return render_template("base.html")
+
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
 
 
 if __name__ == "__main__":
