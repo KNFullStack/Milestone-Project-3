@@ -24,10 +24,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    {% if not session.user %}
                     <a class="nav-link" href="{{ url_for('login') }}">Login</a>
                     <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                    {% endif %}
+                    {% if session.user %}
+                    <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
                     <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
