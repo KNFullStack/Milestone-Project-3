@@ -1,15 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container-fluid" id="dashboard-container">
+
+<div class="container" id="dashboard-container">
     <div class="row text-center align-items-center justify-content-center">
-        <div class="col">TL</div>
-        <div class="col">TR</div>
+        <div class="col-lg-6">
+            <div class="container">
+                <div class="row text-center align-items-center justify-content-center">
+                    <div class="col">
+                        <ul>
+                            {% for x in income %}
+                            <li>
+                                {{ x.name }}
+                                {{ x.value }}<br>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            {% for x in outgoings %}
+                            <li>
+                                {{ x.name }}
+                                {{ x.value }}<br>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-6">
+            <p>test1</p>
+        </div>
     </div>
     <div class="row text-center align-items-center justify-content-center">
-        <div class="col">BL</div>
-        <div class="col">BR</div>
+        <div class="col-lg-6">
+            <p>test2</p>
+        </div>
+        <div class="col-lg-6">
+            <p>test3</p>
+        </div>
     </div>
 </div>
+
 
 {% endblock %}

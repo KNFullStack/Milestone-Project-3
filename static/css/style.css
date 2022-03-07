@@ -1,5 +1,12 @@
-#dashboard-container .row .col {
-    height: 44vh;
+#dashboard-container .row .col-lg-6 {
+    border: 1px solid black;
+}
+
+#dashboard-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #footer {
@@ -15,3 +22,9 @@
 #footer p {
     margin: 0;
 }
+
+li {
+    list-style-type: none;
+}
+
+/* Responsiveness */

@@ -19,16 +19,18 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# tests = mongo.db.testing.find() - this is how we get our records from testing collection
 
 @app.route("/")
 def home():
-    # tests = mongo.db.testing.find() - this is how we get our records from testing collection
     return render_template("base.html")
 
 
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+    income = mongo.db.income.find()
+    outgoings = mongo.db.outgoings.find()
+    return render_template("dashboard.html", income=income, outgoings=outgoings)
 
 
 @app.route("/register", methods=["GET","POST"])
