@@ -1,4 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<p>login</p>
+<h1 class="text-center">Login</h1><Br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form method="POST" action="{{ url_for('login') }}">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+                        required>
+                    <div id="emailHelp" class="form-text">Your email address will not be shared with anyone.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label" required>Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login!</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

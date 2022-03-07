@@ -5,42 +5,60 @@
 <div class="container" id="dashboard-container">
     <div class="row text-center align-items-center justify-content-center">
         <div class="col-lg-6">
-            <div class="container">
-                <div class="row text-center align-items-center justify-content-center">
-                    <div class="col">
-                        <ul>
-                            {% for x in income %}
-                            <li>
-                                {{ x.name }}
-                                {{ x.value }}<br>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <ul>
-                            {% for x in outgoings %}
-                            <li>
-                                {{ x.name }}
-                                {{ x.value }}<br>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
+            <p>pie chart showing what the money is being spent on etc</p>
         </div>
         <div class="col-lg-6">
-            <p>test1</p>
+            <p>graph with projected savings over time using income-outgoings, add that value per month over a year</p>
         </div>
     </div>
     <div class="row text-center align-items-center justify-content-center">
         <div class="col-lg-6">
-            <p>test2</p>
+            <div class="container">
+                <div class="row text-center justify-content-center">
+                    <div class="col">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for record in income %}
+                                <tr>
+                                    <td>{{record.name}}</td>
+                                    <td>{{record.value}}</td>
+                                    <td><button><a href="#">Edit</a></button></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for record in outgoings %}
+                                <tr>
+                                    <td>{{record.name}}</td>
+                                    <td>{{record.value}}</td>
+                                    <td><button><a href="#">Edit</a></button></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-lg-6">
-            <p>test3</p>
+            <p>button for adding a new income</p>
+            <p>button for adding a new outgoing</p>
         </div>
     </div>
 </div>

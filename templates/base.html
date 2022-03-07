@@ -27,15 +27,27 @@
                     <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
                     <a class="nav-link" href="{{ url_for('login') }}">Login</a>
                     <a class="nav-link" href="{{ url_for('register') }}">Register</a>
-                    <a class="nav-link" href="{{ url_for('home') }}">Logout</a>
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
                 </div>
             </div>
         </div>
     </nav>
 
+
     {% block content %}
-    <!-- here i want a big landing page image! with a link for a login or register -->
+    <div class="container">
+        <div id="landing-container" class="row">
+            <div class="col text-center align-items-center justify-content-center ">
+                <h1>Simple Budget Tool</h1>
+                <p>Use this tool to help track your incoming, outgoings and potential bank balance accumulation!</p>
+            </div>
+            <div id="landing-image" class="col text-center align-items-center justify-content-center"><img
+                    src="../static/images/testimage.PNG" alt="image of calculator and pens"></div>
+        </div>
+    </div>
     {% endblock %}
+
+
     <footer id="footer">
         <div class="container-fluid">
             <div class="row text-center align-items-center justify-content-center">

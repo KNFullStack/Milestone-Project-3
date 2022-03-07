@@ -2,7 +2,8 @@
     border: 1px solid black;
 }
 
-#dashboard-container {
+#dashboard-container,
+#landing-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -25,6 +26,17 @@
 
 li {
     list-style-type: none;
+}
+
+#landing-container div {
+    border: 1px solid black;
+    height: 50vh;
+}
+
+#landing-image {
+    width: 100px;
+    overflow: hidden;
+    padding: 1rem;
 }
 
 /* Responsiveness */
