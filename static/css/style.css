@@ -1,3 +1,17 @@
 #dashboard-container .row .col {
     height: 44vh;
 }
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    height: 3rem;
+    color: white;
+}
+
+#footer p {
+    margin: 0;
+}
