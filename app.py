@@ -6,6 +6,8 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 if os.path.exists("env.py"):
@@ -39,7 +41,13 @@ def dashboard():
     user = session["user"].lower()
     income = mongo.db.income.find({"created_by": user})
     outgoings = mongo.db.outgoings.find({"created_by": user})
-    return render_template("dashboard.html", income=income, outgoings=outgoings)
+
+    # continue HERE
+    # x = [1,2,3,4,5]
+    # y = ["bill 1", "bill 2", "bill 3", "bill 4", "bill 5"]
+    # pie = plt.pie(x, labels = y, autopct = "%2.1f%%")
+    
+    return render_template("dashboard.html", income=income, outgoings=outgoings, pie=pie)
 
 
 @app.route("/login", methods=["GET","POST"])
