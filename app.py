@@ -177,6 +177,11 @@ def add_outgoing():
     return render_template("outgoing.html")
 
 
+@app.route("/edit")
+def edit():
+    xxx
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
     port=int(os.environ.get("PORT")),

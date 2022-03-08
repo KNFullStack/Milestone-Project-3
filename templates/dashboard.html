@@ -28,7 +28,8 @@
                                 <tr>
                                     <td>{{record.name}}</td>
                                     <td>{{record.value}}</td>
-                                    <td><button><a href="#">Edit</a></button></td>
+                                    <td><button><a href="{{ url_for('edit') }}">Edit</a></button></td>
+                                    </td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
@@ -47,7 +48,7 @@
                                 <tr>
                                     <td>{{record.name}}</td>
                                     <td>{{record.value}}</td>
-                                    <td><button><a href="#">Edit</a></button></td>
+                                    <td><button><a href="{{ url_for('edit') }}">Edit</a></button></td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
