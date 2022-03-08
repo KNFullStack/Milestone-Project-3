@@ -107,6 +107,42 @@ def logout():
         return redirect(url_for('login'))
 
 
+@app.route("/add_income", methods=["GET","POST"])
+def add_income():
+    if not "user" in session:
+        flash("Please log in.")
+        return redirect(url_for("login"))
+    if request.method == "POST":
+        user = session["user"].lower()    
+        income = {
+            "name": request.form.get("name").lower(),
+            "value": request.form.get("value").lower(),
+            "created_by": user
+        }
+        mongo.db.income.insert_one(income)
+        flash("Income added succesfully")
+        return redirect(url_for("dashboard"))
+
+    return render_template("income.html")
+
+
+@app.route("/add_outgoing", methods=["GET","POST"])
+def add_outgoing():
+    if not "user" in session:
+        flash("Please log in.")
+        return redirect(url_for("login"))
+    if request.method == "POST":
+        user = session["user"].lower()    
+        outgoing = {
+            "name": request.form.get("name").lower(),
+            "value": request.form.get("value").lower(),
+            "created_by": user
+        }
+        mongo.db.outgoings.insert_one(outgoing)
+        flash("Outgoing added succesfully")
+        return redirect(url_for("dashboard"))
+    return render_template("outgoing.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
