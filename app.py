@@ -42,27 +42,37 @@ def dashboard():
     income = mongo.db.income.find({"created_by": user})
     outgoings = mongo.db.outgoings.find({"created_by": user})
 
-    # come in here to make logic to get the outgoings for the logged in user, append that value to a list
-    # come in here to make logic to get the outgoings for the logged in user, append that name to a list
-
-    test_income = []
-    test_outgoings = []
-    test = mongo.db.outgoings.find({"created_by": user})
-    for x in test:
-        print(x)
-
-
-
+    # income chart
+    pie_chart_values_income = []
+    pie_chart_label_income = []
+    income_list = list(mongo.db.income.find({"created_by": user}))
+    for item in income_list:
+        pie_chart_label_income.append(item["name"])
+        pie_chart_values_income.append(item["value"])
     img = BytesIO()
-    x = [1,2,3,4,5]
-    y = [2,3,4,5,6]
-    plt.pie(x, labels = y, autopct = "%2.1f%%")
+    plt.pie(pie_chart_values_income, labels = pie_chart_label_income, autopct = "%2.0f%%", labeldistance=1.2)
     plt.savefig(img, format="png")
     plt.close()
     img.seek(0)
     graph = base64.b64encode(img.getvalue()).decode("utf8")
 
-    return render_template("dashboard.html", income=income, outgoings=outgoings, graph=graph, test_income=test_income, test_outgoings=test_outgoings, test=test)
+    # outgoings chart
+    pie_chart_values_outgoings = []
+    pie_chart_label_outgoings = []
+    outgoings_list = list(mongo.db.outgoings.find({"created_by": user}))
+    for item in outgoings_list:
+        pie_chart_label_outgoings.append(item["name"])
+        pie_chart_values_outgoings.append(item["value"])
+    img2 = BytesIO()
+    plt.pie(pie_chart_values_outgoings, labels = pie_chart_label_outgoings, autopct = "%2.0f%%", labeldistance=1.2)
+    plt.savefig(img2, format="png")
+    plt.close()
+    img.seek(0)
+    graph2 = base64.b64encode(img2.getvalue()).decode("utf8")
+
+    return render_template("dashboard.html", income=income, outgoings=outgoings, graph=graph, graph2=graph2,
+    pie_chart_label_outgoings=pie_chart_label_outgoings, pie_chart_values_outgoings=pie_chart_values_outgoings,
+    outgoings_list=outgoings_list)
 
 
 @app.route("/login", methods=["GET","POST"])

@@ -39,4 +39,9 @@ li {
     padding: 1rem;
 }
 
+#incoming_pie,
+#outgoing_pie {
+    width: 85%;
+}
+
 /* Responsiveness */
