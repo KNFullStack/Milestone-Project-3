@@ -8,7 +8,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
 import matplotlib.pyplot as plt
 import numpy as np
-
+from io import BytesIO
+import base64
 
 if os.path.exists("env.py"):
     import env
@@ -37,17 +38,31 @@ def dashboard():
         flash("Please log in.")
         return redirect(url_for("login"))
 
-
     user = session["user"].lower()
     income = mongo.db.income.find({"created_by": user})
     outgoings = mongo.db.outgoings.find({"created_by": user})
 
-    # continue HERE
-    # x = [1,2,3,4,5]
-    # y = ["bill 1", "bill 2", "bill 3", "bill 4", "bill 5"]
-    # pie = plt.pie(x, labels = y, autopct = "%2.1f%%")
-    
-    return render_template("dashboard.html", income=income, outgoings=outgoings, pie=pie)
+    # come in here to make logic to get the outgoings for the logged in user, append that value to a list
+    # come in here to make logic to get the outgoings for the logged in user, append that name to a list
+
+    test_income = []
+    test_outgoings = []
+    test = mongo.db.outgoings.find({"created_by": user})
+    for x in test:
+        print(x)
+
+
+
+    img = BytesIO()
+    x = [1,2,3,4,5]
+    y = [2,3,4,5,6]
+    plt.pie(x, labels = y, autopct = "%2.1f%%")
+    plt.savefig(img, format="png")
+    plt.close()
+    img.seek(0)
+    graph = base64.b64encode(img.getvalue()).decode("utf8")
+
+    return render_template("dashboard.html", income=income, outgoings=outgoings, graph=graph, test_income=test_income, test_outgoings=test_outgoings, test=test)
 
 
 @app.route("/login", methods=["GET","POST"])
