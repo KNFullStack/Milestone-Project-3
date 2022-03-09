@@ -179,16 +179,49 @@ def add_outgoing():
 
 @app.route("/edit_income/<item_id>", methods=["GET","POST"])
 def edit_income(item_id):
+
+    if request.method == "POST":
+        user = session["user"].lower()    
+        income = { "$set" :{
+            "name": request.form.get("name").lower(),
+            "value": request.form.get("value").lower(),
+            "created_by": user
+        }}
+        mongo.db.income.update_one({"_id": ObjectId(item_id)}, income)
+        flash("Income changed.")
+
     item = mongo.db.income.find_one({"_id": ObjectId(item_id)})
     return render_template("edit_income.html", item=item)
 
 
 @app.route("/edit_outgoing/<item_id>", methods=["GET","POST"])
 def edit_outgoing(item_id):
+    
+    if request.method == "POST":
+        user = session["user"].lower()    
+        outgoing = { "$set" :{
+            "name": request.form.get("name").lower(),
+            "value": request.form.get("value").lower(),
+            "created_by": user
+        }}
+        mongo.db.outgoings.update_one({"_id": ObjectId(item_id)}, outgoing)
+        flash("Outgoing changed.")
+
     item = mongo.db.outgoings.find_one({"_id": ObjectId(item_id)})
     return render_template("edit_outgoing.html", item=item)
 
 
+@app.route("/delete_income/<item_id>")
+def delete_income(item_id):
+    mongo.db.income.delete_one({"_id": ObjectId(item_id)})
+    flash("Income Removed")
+    return redirect(url_for("dashboard"))
+
+@app.route("/delete_outgoing/<item_id>")
+def delete_outgoing(item_id):
+    mongo.db.outgoings.delete_one({"_id": ObjectId(item_id)})
+    flash("Outgoing Removed")
+    return redirect(url_for("dashboard"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
