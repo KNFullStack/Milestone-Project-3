@@ -177,9 +177,17 @@ def add_outgoing():
     return render_template("outgoing.html")
 
 
-@app.route("/edit")
-def edit():
-    xxx
+@app.route("/edit_income/<item_id>", methods=["GET","POST"])
+def edit_income(item_id):
+    item = mongo.db.income.find_one({"_id": ObjectId(item_id)})
+    return render_template("edit_income.html", item=item)
+
+
+@app.route("/edit_outgoing/<item_id>", methods=["GET","POST"])
+def edit_outgoing(item_id):
+    item = mongo.db.outgoings.find_one({"_id": ObjectId(item_id)})
+    return render_template("edit_outgoing.html", item=item)
+
 
 
 if __name__ == "__main__":

@@ -28,7 +28,9 @@
                                 <tr>
                                     <td>{{record.name}}</td>
                                     <td>{{record.value}}</td>
-                                    <td><button><a href="{{ url_for('edit') }}">Edit</a></button></td>
+                                    <td><button><a
+                                                href="{{ url_for('edit_income', item_id=record._id) }}">Edit</a></button>
+                                    </td>
                                     </td>
                                 </tr>
                                 {% endfor %}
@@ -48,7 +50,9 @@
                                 <tr>
                                     <td>{{record.name}}</td>
                                     <td>{{record.value}}</td>
-                                    <td><button><a href="{{ url_for('edit') }}">Edit</a></button></td>
+                                    <td><button><a
+                                                href="{{ url_for('edit_outgoing', item_id=record._id) }}">Edit</a></button>
+                                    </td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
