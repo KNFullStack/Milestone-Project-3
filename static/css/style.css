@@ -13,4 +13,9 @@
     pointer-events: none !important;
 }
 
+.scroller {
+    overflow-y: auto;
+    max-height: 25vh;
+}
+
 /* Responsiveness */
