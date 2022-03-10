@@ -1,3 +1,4 @@
+// Method to check that the two passwords entered into the boxes are the same
 let passwordOne = document.getElementById("password")
 let passwordTwo = document.getElementById("password_check")
 let registerButton = document.getElementById("register_button")
