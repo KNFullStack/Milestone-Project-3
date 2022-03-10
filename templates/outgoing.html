@@ -7,11 +7,12 @@
             <form method="POST" action="{{ url_for('add_outgoing') }}">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name of Outgoing</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
+                    <input type="text" class="form-control" id="name" name="name" minlength="2" maxlength="15" required>
                 </div>
                 <div class="mb-3">
                     <label for="value" class="form-label">Value of Outgoing</label>
-                    <input type="text" class="form-control" id="value" name="value" required>
+                    <input type="text" class="form-control" id="value" name="value" minlength="1" maxlength="15"
+                        required>
                 </div>
                 <button type="submit" class="btn btn-primary">Add Outgoing!</button>
             </form>

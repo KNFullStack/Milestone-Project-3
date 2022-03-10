@@ -7,11 +7,13 @@
             <form method="POST" action="{{ url_for('edit_outgoing', item_id=item._id) }}">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name of Outgoing</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{ item.name }}" required>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ item.name }}" minlength="2"
+                        maxlength="15" required>
                 </div>
                 <div class="mb-3">
                     <label for="value" class="form-label">Value of Outgoing</label>
-                    <input type="text" class="form-control" id="value" name="value" value="{{ item.value }}" required>
+                    <input type="text" class="form-control" id="value" name="value" value="{{ item.value }}"
+                        minlength="1" maxlength="15" required>
                 </div>
                 <a href="{{ url_for('dashboard') }}" class="btn-large">Cancel Edit</a>
                 <button type="submit" class="btn btn-primary">Edit Outgoing</button>
