@@ -7,17 +7,30 @@
             <form method="POST" action="{{ url_for('register') }}">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
+                    <input type="text" class="form-control" id="username" name="username" pattern="^[a-zA-Z0-9]{5,15}$"
+                        minlength="5" maxlength="15" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password"
-                        aria-describedby="password_help" required>
-                    <div id="password_help" class="form-text">Please do not forget your password. They currently
+                        pattern="^[a-zA-Z0-9]{5,15}$" minlength="5" maxlength="15" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password_check" class="form-label">Confirm Password</label>
+                    <input type="password_check" class="form-control" id="password_check" pattern="^[a-zA-Z0-9]{5,15}$"
+                        minlength="5" maxlength="15" aria-describedby="password_help" required>
+                    <div id="password_help" class="form-text mt-3">Please do not forget your password. They currently
                         <strong>cannot</strong> be recovered.</div>
                 </div>
-                <button type="submit" class="btn btn-primary">Register!</button>
+                <button type="submit" id="register_button" class="btn btn-primary unclickable"
+                    aria-describedby="reg_reqs">Register!</button>
                 <button class="btn btn-warning"><a href="{{ url_for('login') }}">Already Registered?</a></button>
+                <div id="reg_reqs" class="form-text mt-3">Rules for username and password as follows:
+                    <ul>
+                        <li>Username and password must be 5 to 15 characters.</li>
+                        <li>Password must match in both boxes.</li>
+                    </ul>
+                </div>
             </form>
         </div>
     </div>

@@ -9,8 +9,8 @@
     margin-top: 1rem;
 }
 
-li {
-    list-style-type: none;
+.unclickable {
+    pointer-events: none !important;
 }
 
 /* Responsiveness */
