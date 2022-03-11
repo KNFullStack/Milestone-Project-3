@@ -15,7 +15,7 @@
 
 .scroller {
     overflow-y: auto;
-    max-height: 25vh;
+    max-height: 30vh;
 }
 
 /* Responsiveness */

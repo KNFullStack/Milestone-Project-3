@@ -47,8 +47,9 @@ def dashboard():
     pie_chart_label_income = []
     income_list = list(mongo.db.income.find({"created_by": user}))
     for item in income_list:
-        pie_chart_label_income.append(item["name"])
-        pie_chart_values_income.append(item["value"])
+        pie_chart_label_income.append(item["name"].capitalize())
+        pie_chart_values_income.append(int(item["value"]))
+    total_income = sum(pie_chart_values_income)
     img = BytesIO()
     plt.pie(pie_chart_values_income, autopct = "%2.0f%%", shadow=True, pctdistance=0.9)
     plt.tight_layout()
@@ -63,8 +64,9 @@ def dashboard():
     pie_chart_label_outgoings = []
     outgoings_list = list(mongo.db.outgoings.find({"created_by": user}))
     for item in outgoings_list:
-        pie_chart_label_outgoings.append(item["name"])
-        pie_chart_values_outgoings.append(item["value"])
+        pie_chart_label_outgoings.append(item["name"].capitalize())
+        pie_chart_values_outgoings.append(int(item["value"]))
+    total_outgoings = sum(pie_chart_values_outgoings)
     img2 = BytesIO()
     plt.pie(pie_chart_values_outgoings, autopct = "%2.0f%%", shadow=True, pctdistance=0.9)
     plt.tight_layout()
@@ -76,7 +78,7 @@ def dashboard():
 
     return render_template("dashboard.html", income=income, outgoings=outgoings, graph=graph, graph2=graph2,
     pie_chart_label_outgoings=pie_chart_label_outgoings, pie_chart_values_outgoings=pie_chart_values_outgoings,
-    outgoings_list=outgoings_list)
+    outgoings_list=outgoings_list, total_outgoings=total_outgoings, total_income=total_income)
 
 
 @app.route("/login", methods=["GET","POST"])

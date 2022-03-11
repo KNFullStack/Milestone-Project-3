@@ -24,7 +24,7 @@
                 </div>
                 <button type="submit" id="register_button" class="btn btn-primary unclickable"
                     aria-describedby="reg_reqs">Register!</button>
-                <button class="btn btn-warning"><a href="{{ url_for('login') }}">Already Registered?</a></button>
+                <a class="btn btn-warning" href="{{ url_for('login') }}">Already Registered?</a>
                 <div id="reg_reqs" class="form-text mt-3">Rules for username and password as follows:
                     <ul>
                         <li>Username and password must be 5 to 15 characters.</li>
