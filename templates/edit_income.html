@@ -15,8 +15,8 @@
                     <input type="text" class="form-control" id="value" name="value" value="{{ item.value }}"
                         minlength="1" maxlength="15" required>
                 </div>
-                <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Cancel Edit</a>
                 <button type="submit" class="btn btn-primary">Edit Income</button>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-warning">Cancel Edit</a>
             </form>
         </div>
     </div>
