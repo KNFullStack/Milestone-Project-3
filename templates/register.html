@@ -3,15 +3,15 @@
 <h1 class="text-center">Register</h1><Br>
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-6 mx-auto">
             <form method="POST" action="{{ url_for('register') }}">
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
+                    <label for="username" class="form-label">Enter a Username</label>
                     <input type="text" class="form-control" id="username" name="username" pattern="^[a-zA-Z0-9]{5,15}$"
                         minlength="5" maxlength="15" required>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label">Enter a Password</label>
                     <input type="password" class="form-control" id="password" name="password"
                         pattern="^[a-zA-Z0-9]{5,15}$" minlength="5" maxlength="15" required>
                 </div>
