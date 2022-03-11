@@ -186,6 +186,9 @@ def add_outgoing():
 @app.route("/edit_income/<item_id>", methods=["GET","POST"])
 def edit_income(item_id):
 
+    # old_name = request.form.get("name")
+    # old_value = request.form.get("value")
+
     if request.method == "POST":
         user = session["user"].lower()    
         income = { "$set" :{
@@ -193,6 +196,13 @@ def edit_income(item_id):
             "value": request.form.get("value").lower(),
             "created_by": user
         }}
+        
+        # if old_name == income["name"] and old_value == income["value"]:
+        #     flash("There is no change to make.")
+        #     return render_template("edit_income.html", item=item)
+
+
+
         mongo.db.income.update_one({"_id": ObjectId(item_id)}, income)
         flash("Income changed.")
 
