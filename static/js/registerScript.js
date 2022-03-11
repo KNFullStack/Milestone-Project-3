@@ -13,5 +13,3 @@ function confirmPassword() {
         registerButton.classList.remove("unclickable")
     }
 }
-
-// Deletion Confirmation Popup

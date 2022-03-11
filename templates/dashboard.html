@@ -2,13 +2,17 @@
 {% block content %}
 
 
-<div class="container" id="dashboard-container">
+<div class="container-fluid mt-3">
     <div class="row text-center align-items-center justify-content-center">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <h3>Income</h3>
             <img id="incoming_pie" src="data:image/png;base64, {{graph}}" alt="graph" class="img-fluid">
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-4">
+            <h3>Outgoings</h3>
+            <img id="outgoing_pie" src="data:image/png;base64, {{graph2}}" alt="graph" class="img-fluid">
+        </div>
+        <div class="col-lg-4">
             <h3>Outgoings</h3>
             <img id="outgoing_pie" src="data:image/png;base64, {{graph2}}" alt="graph" class="img-fluid">
         </div>
@@ -49,23 +53,51 @@
                 <tbody>
                     {% for record in outgoings %}
                     <tr>
-                        <td>{{record.name.capitalize()}}</td>
+                        <td>{{record.name}}</td>
                         <td>{{record.value}}</td>
                         <td><a class="btn btn-primary"
-                                href="{{ url_for('edit_outgoing', item_id=record._id) }}">Edit</a>
-                        </td>
-                        <td><a class="btn btn-warning"
-                                href="{{ url_for('delete_outgoing', item_id=record._id) }}">Delete</a>
+                                href="{{ url_for('edit_outgoing', item_id=record._id) }}">Edit</a></td>
+                        <td>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop{{ loop.index }}">
+                                Delete
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop{{ loop.index}}" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered ">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Delete Outgoing
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete this Outgoing?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary"
+                                                data-bs-dismiss="modal">Cancel</button>
+                                            <a class="btn btn-danger"
+                                                href="{{ url_for('delete_outgoing', item_id=record._id) }}">Yes</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     {% endfor %}
-                    <tr>Total Outgoings:{{ total_outgoings }}</tr>
+                    <tr>Total Income:{{ total_income }}</tr>
                 </tbody>
+
             </table>
         </div>
         <div class="col-lg-2 d-flex flex-column justify-content-center align-items-center">
-            <a class="btn btn-primary" href="{{ url_for('add_income') }}">Add Income</a>
-            <a class="btn btn-primary mt-2" href="{{ url_for('add_outgoing') }}">Add Outgoing</a>
+            <a class="btn btn-secondary" href="{{ url_for('add_income') }}">Add Income</a>
+            <a class="btn btn-secondary mt-2" href="{{ url_for('add_outgoing') }}">Add Outgoing</a>
         </div>
     </div>
 </div>
