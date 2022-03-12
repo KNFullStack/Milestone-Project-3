@@ -12,4 +12,5 @@ function confirmPassword() {
     } else {
         registerButton.classList.remove("unclickable")
     }
+    return
 }

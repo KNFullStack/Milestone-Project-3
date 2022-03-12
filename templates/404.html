@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-2 text-center">
+    <div class="row">
+        <div class="col">
+            <h1>Sorry, the page you have requested is not found.</h1>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col"><a class="btn btn-primary" href="{{ url_for('home') }}">Return Home</a></div>
+    </div>
+</div>
+{% endblock %}

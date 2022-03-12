@@ -16,9 +16,11 @@
                         minlength="1" maxlength="15" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Edit Income</button>
-                <a href="{{ url_for('dashboard') }}" class="btn btn-warning">Cancel Edit</a>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-warning">Return to Dashboard</a>
             </form>
         </div>
     </div>
 </div>
+{{ old_name }}
+{{ old_value }}
 {% endblock %}

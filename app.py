@@ -186,22 +186,19 @@ def add_outgoing():
 @app.route("/edit_income/<item_id>", methods=["GET","POST"])
 def edit_income(item_id):
 
-    # old_name = request.form.get("name")
-    # old_value = request.form.get("value")
-
     if request.method == "POST":
-        user = session["user"].lower()    
+        user = session["user"].lower()
+        old_name = mongo.db.income.find_one({"_id": ObjectId(item_id)})["name"]
+        old_value = mongo.db.income.find_one({"_id": ObjectId(item_id)})["value"]
         income = { "$set" :{
             "name": request.form.get("name").lower(),
             "value": request.form.get("value").lower(),
             "created_by": user
         }}
         
-        # if old_name == income["name"] and old_value == income["value"]:
-        #     flash("There is no change to make.")
-        #     return render_template("edit_income.html", item=item)
-
-
+        if old_name == income["$set"]["name"] and old_value == income["$set"]["value"]:
+            flash("There is no change to make.")
+            return redirect(url_for("dashboard"))
 
         mongo.db.income.update_one({"_id": ObjectId(item_id)}, income)
         flash("Income changed.")
@@ -212,14 +209,21 @@ def edit_income(item_id):
 
 @app.route("/edit_outgoing/<item_id>", methods=["GET","POST"])
 def edit_outgoing(item_id):
-    
+
     if request.method == "POST":
-        user = session["user"].lower()    
+        user = session["user"].lower()
+        old_name = mongo.db.outgoings.find_one({"_id": ObjectId(item_id)})["name"]
+        old_value = mongo.db.outgoings.find_one({"_id": ObjectId(item_id)})["value"]
         outgoing = { "$set" :{
             "name": request.form.get("name").lower(),
             "value": request.form.get("value").lower(),
             "created_by": user
         }}
+
+        if old_name == outgoing["$set"]["name"] and old_value == outgoing["$set"]["value"]:
+            flash("There is no change to make.")
+            return redirect(url_for("dashboard"))
+
         mongo.db.outgoings.update_one({"_id": ObjectId(item_id)}, outgoing)
         flash("Outgoing changed.")
 
@@ -233,11 +237,18 @@ def delete_income(item_id):
     flash("Income Removed")
     return redirect(url_for("dashboard"))
 
+
 @app.route("/delete_outgoing/<item_id>")
 def delete_outgoing(item_id):
     mongo.db.outgoings.delete_one({"_id": ObjectId(item_id)})
     flash("Outgoing Removed")
     return redirect(url_for("dashboard"))
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html"), 404
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
