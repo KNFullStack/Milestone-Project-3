@@ -14,3 +14,7 @@ function confirmPassword() {
     }
     return
 }
+
+// Currency Selector
+
+let currency = document.getElementById('currency')

@@ -10,12 +10,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 from io import BytesIO
 import base64
+from flask_humanize import Humanize
 
 if os.path.exists("env.py"):
     import env
 
 
 app = Flask(__name__)
+humanize = Humanize(app)
 app.permanent_session_lifetime = timedelta(days=1)
 
 
