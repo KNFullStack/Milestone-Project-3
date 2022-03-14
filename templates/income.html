@@ -1,17 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="text-center">Add a new Income</h1><Br>
 <div class="container">
     <div class="row">
-        <div class="col-6 mx-auto">
+        <div class="col">
+            <h1 class="text-center mt-3">Add a new Income</h1>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-lg-6 mx-auto">
             <form method="POST" action="{{ url_for('add_income') }}">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name of Income</label>
-                    <input type="text" class="form-control" id="name" name="name" minlength="2" maxlength="15" required>
+                    <input type="text" class="form-control" id="name" name="name" minlength="1" maxlength="15" required>
                 </div>
                 <div class="mb-3">
                     <label for="value" class="form-label">Value of Income</label>
-                    <input type="text" class="form-control" id="value" name="value" minlength="1" maxlength="15"
+                    <input type="text" class="form-control" id="value" name="value" minlength="1" maxlength="10"
                         required>
                 </div>
                 <button type="submit" class="btn btn-primary">Add Income</button>

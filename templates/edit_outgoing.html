@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="text-center">Edit an Outgoing</h1><Br>
 <div class="container">
     <div class="row">
-        <div class="col-6 mx-auto">
+        <div class="col">
+            <h1 class="text-center mt-3">Edit an Outgoing</h1>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-lg-6 mx-auto">
             <form method="POST" action="{{ url_for('edit_outgoing', item_id=item._id) }}">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name of Outgoing</label>

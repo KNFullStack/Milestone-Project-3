@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="text-center">Login</h1><Br>
 <div class="container">
     <div class="row">
-        <div class="col-6 mx-auto">
+        <div class="col">
+            <h1 class="text-center mt-3">Login</h1>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-lg-6 mx-auto">
             <form method="POST" action="{{ url_for('login') }}">
                 <div class="mb-3">
                     <label for="username" class="form-label">Enter your Username</label>
@@ -11,10 +15,13 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label"> Enter your Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <input type="password" class="form-control" id="password" name="password"
+                        aria-describedby="login_info" required>
+                    <div id="login_info" class="form-text mt-3">You will automatically be logged out after 24 hours.
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Login!</button>
-                <a class="btn btn-warning" href="{{ url_for('register') }}">Need to Register?</a>
+                <button type="submit" class="btn btn-primary mb-2">Login!</button>
+                <a class="btn btn-warning mb-2" href="{{ url_for('register') }}">Need to Register?</a>
             </form>
         </div>
     </div>

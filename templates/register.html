@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="text-center">Register</h1><Br>
 <div class="container">
     <div class="row">
-        <div class="col-6 mx-auto">
+        <div class="col">
+            <h1 class="text-center mt-3">Register</h1>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-lg-6 mx-auto">
             <form method="POST" action="{{ url_for('register') }}">
                 <div class="mb-3">
                     <label for="username" class="form-label">Enter a Username</label>
@@ -27,8 +31,8 @@
                 <a class="btn btn-warning" href="{{ url_for('login') }}">Already Registered?</a>
                 <div id="reg_reqs" class="form-text mt-3">Rules for username and password as follows:
                     <ul>
-                        <li>Username and password must be 5 to 15 characters.</li>
-                        <li>Password must match in both boxes.</li>
+                        <li class="list-left">Username and password must be 5 to 15 characters.</li>
+                        <li class="list-left">Password must match in both boxes.</li>
                     </ul>
                 </div>
             </form>
