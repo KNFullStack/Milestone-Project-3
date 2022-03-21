@@ -31,6 +31,8 @@
                     {% endif %}
                     {% if session.user %}
                     <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    <a class="nav-link" href="{{ url_for('add_income') }}">Add Income</a>
+                    <a class="nav-link" href="{{ url_for('add_outgoing') }}">Add Outgoing</a>
                     <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
                     {% endif %}
                 </div>
@@ -57,11 +59,13 @@
     </section>
 
     {% block content %}
-    <div class="container">
+    <div class="container-fluid">
         <div id="landing-container" class="row">
             <div class="col d-flex flex-column text-center justify-content-center">
                 <h1>Simple Budget Tool</h1>
                 <p>Use this tool to help track your income and outgoings.</p>
+                <a class="btn btn-primary mx-auto mb-2" href="{{ url_for('login') }}">Login</a>
+                <a class="btn btn-warning mx-auto mb-2" href="{{ url_for('register') }}">Register</a>
             </div>
         </div>
     </div>

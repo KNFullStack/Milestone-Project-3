@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="row text-center align-items-center justify-content-center">
-        <div class="col-lg-5 scroller mb-3">
+        <div class="col-lg-3 scroller mb-3">
             <h3>Total Income: <span class="currencyPlacement"></span>{{ total_income|humanize('intcomma') }}</h3>
             <table class="table table-hover">
                 <thead>
@@ -67,7 +67,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-lg-5 scroller mt-3 mb-4">
+        <div class="col-lg-3 scroller mt-3 mb-4">
             <h3>Total Outgoings: <span class="currencyPlacement"></span>{{ total_outgoings|humanize('intcomma') }}</h3>
             <table class="table table-hover">
                 <thead>
@@ -120,11 +120,14 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-lg-2 d-flex flex-column justify-content-center align-items-center">
-            <a class="btn btn-secondary btn-lg" href="{{ url_for('add_income') }}">Add Income</a>
-            <a class="btn btn-secondary btn-lg my-3" href="{{ url_for('add_outgoing') }}">Add Outgoing</a>
-            <h4>Select a currency (optional):</h4>
-            <select class="form-select mb-3" id="currency">
+        <div class="col-lg-3 d-flex flex-row justify-content-center align-items-center">
+            <a class="btn btn-success btn-lg mx-3" href="{{ url_for('add_income') }}">Add Income</a>
+            <a class="btn btn-success btn-lg" href="{{ url_for('add_outgoing') }}">Add Outgoing</a>
+        </div>
+        <div class="col-lg-3 d-flex flex-column justify-content-center align-items-center">
+            <h3>Money Remaining: <span class="currencyPlacement"></span>{{ net|humanize('intcomma') }}</h3>
+            <h5 class="mb-3">Select a currency (optional):</h5>
+            <select class="form-select" id="currency">
                 <option value="select">Select a currency (optional):</option>
                 <option value="GBP">GBP</option>
                 <option value="USD">USD</option>

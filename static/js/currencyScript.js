@@ -4,7 +4,7 @@ let currencySpan = document.getElementsByClassName("currencyPlacement")
 const storedCurrency = JSON.parse(localStorage.getItem('currency'));
 window.addEventListener("load", () => {
     currency.value = storedCurrency;
-    loadCurrency()
+    loadCurrency();
 })
 
 

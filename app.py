@@ -78,9 +78,11 @@ def dashboard():
     img.seek(0)
     graph2 = base64.b64encode(img2.getvalue()).decode("utf8")
 
+
+    net = total_income - total_outgoings
     return render_template("dashboard.html", income=income, outgoings=outgoings, graph=graph, graph2=graph2,
     pie_chart_label_outgoings=pie_chart_label_outgoings, pie_chart_values_outgoings=pie_chart_values_outgoings,
-    outgoings_list=outgoings_list, total_outgoings=total_outgoings, total_income=total_income)
+    outgoings_list=outgoings_list, total_outgoings=total_outgoings, total_income=total_income, net=net)
 
 
 @app.route("/login", methods=["GET","POST"])

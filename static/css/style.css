@@ -8,9 +8,9 @@
 }
 
 #landing-container {
-    background: url(../images/testimage.PNG) no-repeat center center;
+    background: url(../images/background-image.jpg) no-repeat center center;
     background-size: cover;
-    height: 91vh;
+    height: 94vh;
 }
 
 .flashes {
@@ -20,6 +20,10 @@
 
 .list-left {
     text-align: left;
+}
+
+#currency {
+    width: 50%;
 }
 
 /* Responsiveness */
