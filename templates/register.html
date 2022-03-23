@@ -8,7 +8,7 @@
     </div>
     <div class="row text-center">
         <div class="col-lg-6 mx-auto">
-            <form method="POST" action="{{ url_for('register') }}">
+            <form id="registerForm" method="POST" action="{{ url_for('register') }}">
                 <div class="mb-3">
                     <label for="username" class="form-label">Enter a Username</label>
                     <input type="text" class="form-control" id="username" name="username" pattern="^[a-zA-Z0-9]{5,15}$"
@@ -23,10 +23,11 @@
                     <label for="password_check" class="form-label">Confirm Password</label>
                     <input type="password" class="form-control" id="password_check" pattern="^[a-zA-Z0-9]{5,15}$"
                         minlength="5" maxlength="15" aria-describedby="password_help" required>
+                    <div id="passwordsIncorrect" class="form-text hidden">Passwords do not match!</div>
                     <div id="password_help" class="form-text mt-3">Please do not forget your password. They currently
                         <strong>cannot</strong> be recovered.</div>
                 </div>
-                <button type="submit" id="register_button" class="btn btn-primary unclickable"
+                <button type="submit" id="register_button" class="btn btn-primary"
                     aria-describedby="reg_reqs">Register!</button>
                 <a class="btn btn-warning" href="{{ url_for('login') }}">Already Registered?</a>
                 <div id="reg_reqs" class="form-text mt-3">Rules for username and password as follows:

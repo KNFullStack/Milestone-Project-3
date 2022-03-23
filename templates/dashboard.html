@@ -3,16 +3,6 @@
 
 
 <div class="container-fluid mt-3">
-    <div class="row text-center align-items-center justify-content-center">
-        <div class="col-lg-6">
-            <h3>Income</h3>
-            <img id="incoming_pie" src="data:image/png;base64, {{graph}}" alt="graph" class="img-fluid">
-        </div>
-        <div class="col-lg-6">
-            <h3>Outgoings</h3>
-            <img id="outgoing_pie" src="data:image/png;base64, {{graph2}}" alt="graph" class="img-fluid">
-        </div>
-    </div>
     <div class="row text-center justify-content-center">
         <div class="col-lg-3 mb-3">
             <h3>Total Income: <span class="currencyPlacement"></span>{{ total_income|humanize('intcomma') }}</h3>
@@ -162,6 +152,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row text-center align-items-center justify-content-center">
+        <div class="col-lg-6">
+            <h3>Income</h3>
+            <img id="incoming_pie" src="data:image/png;base64, {{graph}}" alt="graph" class="img-fluid">
+        </div>
+        <div class="col-lg-6">
+            <h3>Outgoings</h3>
+            <img id="outgoing_pie" src="data:image/png;base64, {{graph2}}" alt="graph" class="img-fluid">
         </div>
     </div>
 </div>

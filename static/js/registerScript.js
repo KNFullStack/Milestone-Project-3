@@ -1,16 +1,18 @@
 // Method to check that the two passwords entered into the boxes are the same
 let passwordOne = document.getElementById("password")
 let passwordTwo = document.getElementById("password_check")
-let registerButton = document.getElementById("register_button")
+let form = document.getElementById("registerForm")
+let passwordWarning = document.getElementById("passwordsIncorrect")
 
-passwordOne.addEventListener("input", confirmPassword)
-passwordTwo.addEventListener("input", confirmPassword)
+form.addEventListener("submit", confirmPassword)
 
-function confirmPassword() {
+function confirmPassword(event) {
+    event.preventDefault();
     if (passwordOne.value != passwordTwo.value) {
-        registerButton.classList.add("unclickable")
+        passwordWarning.classList.remove("hidden")
     } else {
-        registerButton.classList.remove("unclickable")
+        passwordWarning.classList.add("hidden")
+        form.submit();
     }
     return
 }

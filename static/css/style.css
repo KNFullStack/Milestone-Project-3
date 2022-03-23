@@ -1,5 +1,5 @@
-.unclickable {
-    pointer-events: none !important;
+.hidden {
+    display: none;
 }
 
 .scroller {
