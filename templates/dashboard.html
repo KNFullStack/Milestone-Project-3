@@ -14,111 +14,116 @@
         </div>
     </div>
     <div class="row text-center justify-content-center">
-        <div class="col-lg-3 scroller mb-3">
+        <div class="col-lg-3 mb-3">
             <h3>Total Income: <span class="currencyPlacement"></span>{{ total_income|humanize('intcomma') }}</h3>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Value</th>
-                        <th scope="col" colspan="2">Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for record in income %}
-                    <tr>
-                        <td>{{record.name.capitalize()}}</td>
-                        <td><span class="currencyPlacement"></span>{{record.value|humanize('intcomma')}}</td>
-                        <td><a class="btn btn-primary" href="{{ url_for('edit_income', item_id=record._id) }}">Edit</a>
-                        </td>
-                        <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop{{ loop.index }}income">
-                                Delete
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop{{ loop.index}}income" data-bs-backdrop="static"
-                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelIncome"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered ">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabelIncome">Delete Income
-                                            </h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Are you sure you want to delete this Income?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary"
-                                                data-bs-dismiss="modal">Cancel</button>
-                                            <a class="btn btn-danger"
-                                                href="{{ url_for('delete_income', item_id=record._id) }}">Yes</a>
+            <div class="scroller">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Value</th>
+                            <th scope="col" colspan="2">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in income %}
+                        <tr>
+                            <td>{{record.name.capitalize()}}</td>
+                            <td><span class="currencyPlacement"></span>{{record.value|humanize('intcomma')}}</td>
+                            <td><a class="btn btn-primary"
+                                    href="{{ url_for('edit_income', item_id=record._id) }}">Edit</a>
+                            </td>
+                            <td>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop{{ loop.index }}income">
+                                    Delete
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop{{ loop.index}}income"
+                                    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                    aria-labelledby="staticBackdropLabelIncome" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered ">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabelIncome">Delete Income
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to delete this Income?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary"
+                                                    data-bs-dismiss="modal">Cancel</button>
+                                                <a class="btn btn-danger"
+                                                    href="{{ url_for('delete_income', item_id=record._id) }}">Yes</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="col-lg-3 scroller mb-3">
+        <div class="col-lg-3 mb-3">
             <h3>Total Outgoings: <span class="currencyPlacement"></span>{{ total_outgoings|humanize('intcomma') }}</h3>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Value</th>
-                        <th scope="col" colspan="2">Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for record in outgoings %}
-                    <tr>
-                        <td>{{record.name.capitalize()}}</td>
-                        <td><span class="currencyPlacement"></span>{{record.value|humanize('intcomma')}}</td>
-                        <td><a class="btn btn-primary"
-                                href="{{ url_for('edit_outgoing', item_id=record._id) }}">Edit</a></td>
-                        <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop{{ loop.index }}outgoing">
-                                Delete
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop{{ loop.index}}outgoing" data-bs-backdrop="static"
-                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelOutgoing"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered ">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabelOutgoing">Delete Outgoing
-                                            </h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Are you sure you want to delete this Outgoing?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary"
-                                                data-bs-dismiss="modal">Cancel</button>
-                                            <a class="btn btn-danger"
-                                                href="{{ url_for('delete_outgoing', item_id=record._id) }}">Yes</a>
+            <div class="scroller">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Value</th>
+                            <th scope="col" colspan="2">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in outgoings %}
+                        <tr>
+                            <td>{{record.name.capitalize()}}</td>
+                            <td><span class="currencyPlacement"></span>{{record.value|humanize('intcomma')}}</td>
+                            <td><a class="btn btn-primary"
+                                    href="{{ url_for('edit_outgoing', item_id=record._id) }}">Edit</a></td>
+                            <td>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop{{ loop.index }}outgoing">
+                                    Delete
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop{{ loop.index}}outgoing"
+                                    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                    aria-labelledby="staticBackdropLabelOutgoing" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered ">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabelOutgoing">Delete Outgoing
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to delete this Outgoing?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary"
+                                                    data-bs-dismiss="modal">Cancel</button>
+                                                <a class="btn btn-danger"
+                                                    href="{{ url_for('delete_outgoing', item_id=record._id) }}">Yes</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="col-lg-3 d-flex align-items-center">
             <div class="container">
@@ -133,7 +138,7 @@
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col">
+                    <div class="col mb-3">
                         <a class="btn btn-success" href="{{ url_for('add_outgoing') }}">Add Outgoing</a>
                     </div>
                 </div>
@@ -147,7 +152,7 @@
                     </div>
                 </div>
                 <div class="row align-items-center justify-content-center">
-                    <div class="col">
+                    <div class="col mb-3">
                         <select class="form-select btn-group" id="currency">
                             <option value="select">None</option>
                             <option value="GBP">GBP</option>

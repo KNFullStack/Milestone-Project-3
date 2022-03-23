@@ -8,7 +8,7 @@
 }
 
 #landing-container {
-    background: url(../images/background-image.jpg) no-repeat center center;
+    background: url(../images/background-image.jpg) no-repeat center;
     background-size: cover;
     height: 94vh;
 }
