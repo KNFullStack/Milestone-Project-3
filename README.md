@@ -1,4 +1,4 @@
-![Web application image](XXX) 
+![Landing Page](../static/readme/landing-page.PNG)
 # Milestone Project 3 - XXX
 # Table of Contents
 * [Introduction](XXX)
