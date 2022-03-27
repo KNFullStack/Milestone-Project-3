@@ -30,4 +30,14 @@ label {
     font-size: 1.5rem;
 }
 
+td {
+    vertical-align: middle;
+}
+
 /* Responsiveness */
+
+/* @media (min-width: 768px) {
+    x {
+        x
+    }
+} */

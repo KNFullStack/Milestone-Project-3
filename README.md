@@ -1,4 +1,4 @@
-![Landing Page](../static/readme/landing-page.PNG)
+![Landing Page](/static/readme/landing-page.PNG)
 # Milestone Project 3 - XXX
 # Table of Contents
 * [Introduction](XXX)
@@ -45,31 +45,33 @@
   * [Code](XXX)
   * [Media](XXX)
 
-You can find the published website here: [Milestone Project 3](XXX).
+You can find the published website here: [Milestone Project 3](https://milestone-project-3-kn.herokuapp.com/).
 # Introduction
 
-The project is part of a Full Stack Developer course run by CodeInstitute. This is Milestone Project 3. This project was to create a full stack web application with CRUD functionality.
+The project is part of a Full Stack Developer course run by CodeInstitute. This is Milestone Project 3. This project was to create a full stack web application with CRUD functionality. This web application is a simple budgeting tool, where users can create an account, add their income and outgoings and see a visual representation of each.
 
 ## Milestone Project 3
 
 A mockup of the web application can be seen below:
 
-![Mockup Image](XXX)
+![Mockup Image](/static/readme/mockup.png)
 
 # User Experience Design
 ## User Stories
 ### First Time Visitors
 * What would I want to see as a first time visitor?
-  1. 
-  2. 
+  1. What can I use the web application for?
+  2. Where can I register?
+  3. Can I change the currency that is shown?
 ### Returning Visitors
 * What would I want to see as a returning visitor?
-  1. 
-  2. 
+  1. Where can I log in?
+  2. How to add new income or outgoings.
+  3. Somewhere to view all of the income or outgoings that have been entered.
 ### Frequent Users
 * What would I want to see as a frequent visitor?
-  1. 
-  2. 
+  1. How to edit an previous income or outgoings that are stored.
+  2. How to delete any income or outgoings that do not apply any more.
 
 ### User Story Screenshots
 Below are screenshots relating to some of the user stories.
@@ -81,15 +83,11 @@ Shown below are elements that correspond to some of the User Stories:
 
 ## Design
 ### Colors
-The main colors and design aim... XXX
-### Typography
-The text throughout the web application is XXX font.
+The main colors throughout are white backgrounds, using bold colours that stand out for buttons and pie charts. The aim was to not have any background elements that would clash with the pie chart colours as income and outgoings are added.
 ### Images
-"XXX" 
-### Sounds
-"XXX"
+The landing page image is used with thanks to [Mediamodifier](https://unsplash.com/@mediamodifier).
 ### Wireframes
-Wireframes images can be seen below and also found in the "/assets/readme-content" folder. It contains a design for the desktop and mobile version of the web application.
+Wireframes images can be seen below and also found in the "/assets/readme-content" folder. It contains a design for the desktop and mobile version of the dashboard.
 
 * Mobile: <br> ![Mobile Wireframe](XXX)
 * Desktop: <br> ![Desktop Wireframe](XXX)
@@ -99,8 +97,10 @@ See link for PDF below:
 
 ### Design Deviations
 Compared to the original Wireframe there have been multiple deviations.
-* "the item changed""
-> "changed how and why"
+* The original Wireframe had the pie chart elements on the top of the page.
+> On mobile devices when there was no income or outgoing, a blank space was displayed in place of the pie charts. This was easy to change with bootstrap to ensure that the other controls (adding income and outgoings) were displayed on top first.
+* Tables displayed a large list of income or outgoings.
+> This was changed to introduce a scroll bar in the income and outgoing tables when a certain table size was reached.
 
 Note: these changes were applied to both the desktop and mobile version of the web application.
 
@@ -112,13 +112,16 @@ Currently, there some limitations:
 
 # Features
 ## Current Features
-* XXX
-* XXX
+* CRUD functionality regarding income and outgoings.
+* Pie charts for a visual display of income and outgoings that contribute most.
+* Tables showing the all the income and outgoings associated with the account.
+* Account registration.
+* Currency icon selector (currently GBP, Euro and US Dollar).
 
 ## Future Features
 Features that could be released in subsequent versions include:
-* XXX
-* XXX
+* More chart types could be added. Such as predictive graphs for total savings value based on an amount saved per month.
+* Setting the default currency to GBP (£) and then upon selecting from a number of currencies, the value will update according to current currency exchange rates.
 
 # Technologies
 Technologies used are as follows.
@@ -133,12 +136,12 @@ Technologies used are as follows.
   * Used to create the back end of the web application.
 
 ## Libraries, Frameworks & Programs Used
+* [Bootstrap 5](https://getbootstrap.com/)
+   * Multiple features of Bootstrap 5 were used to create the website. Including grid system, responsiveness and the navbar.
 * [Balsamiq](https://balsamiq.com/)
    * Used to create the wireframes when starting the design.
 * [Font Awesome](https://fontawesome.com/)
-   * Used for multiple icons throughout the website.
-* [Google Fonts](https://fonts.google.com/)
-   * Used to incorporate the font "Roboto" by Christian Robertson.
+   * Used for multiple icons throughout the web application..
 * [Techsini](http://techsini.com/multi-mockup/index.php)
    * Used to generate the mockup image in this README file, see above.
 * [GitHub](https://github.com/)
@@ -151,8 +154,6 @@ Technologies used are as follows.
    * Used to test different CSS styles in the browser, inspect pages, general debugging, confirming JavaScript functionality with the Console and using Lighthouse.
 * [favicon.cc](https://www.favicon.cc/)
     * Used to create the favicon.ico.
-* [FreeConvert](https://www.freeconvert.com/video-compressor/)
-    * Used to compress files.
 * [W3C HTML Validator](https://validator.w3.org/)
     * Used to validate the HTML code.
 * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
@@ -166,12 +167,20 @@ Technologies used are as follows.
 * [Heroku](https://www.heroku.com/)
     * Used as the cloud web application host.
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
-    * xxx
+    * Python based web framework used for the backend of the web application.
 * [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
-    * xxx
+    * Template engine for Python. Used for things like template inheritance and displaying Python variables on the front end. 
 
 # Testing
-XXX TESTING XXX
+High level testing plan:
+1. CRUD functionality.
+2. Responsiveness from 300px to 3000px, on multiple browsers:
+  > Google Chrome
+  > Mozilla Firefox
+  > Opera
+3. All buttons working as intended.
+4. Interactive parts working as intended.
+5. No content areas overlapping other content areas. 
 
 Test Results can be found here: [Test Results](XXX)
 
