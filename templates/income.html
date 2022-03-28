@@ -11,13 +11,14 @@
             <form method="POST" action="{{ url_for('add_income') }}">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name of Income</label>
-                    <input type="text" class="form-control" id="name" name="name" minlength="1" maxlength="15" required>
+                    <input type="text" class="form-control" id="name" name="name" minlength="1" maxlength="9" required>
                 </div>
                 <div class="mb-3">
                     <label for="value" class="form-label">Value of Income</label>
-                    <input type="text" class="form-control" id="value" name="value" minlength="1" maxlength="10"
+                    <input type="number" class="form-control" id="value" name="value" minlength="1" maxlength="10"
                         required>
                 </div>
+                <div class="form-text mb-3">Please use whole numbers.</div>
                 <button type="submit" class="btn btn-primary">Add Income</button>
                 <a href="{{ url_for('dashboard') }}" class="btn btn-warning">Cancel</a>
             </form>

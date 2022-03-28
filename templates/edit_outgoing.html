@@ -12,13 +12,14 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Name of Outgoing</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ item.name }}" minlength="2"
-                        maxlength="15" required>
+                        maxlength="9" required>
                 </div>
                 <div class="mb-3">
                     <label for="value" class="form-label">Value of Outgoing</label>
-                    <input type="text" class="form-control" id="value" name="value" value="{{ item.value }}"
+                    <input type="number" class="form-control" id="value" name="value" value="{{ item.value }}"
                         minlength="1" maxlength="15" required>
                 </div>
+                <div class="form-text mb-3">Please use whole numbers.</div>
                 <button type="submit" class="btn btn-primary">Edit Outgoing</button>
                 <a href="{{ url_for('dashboard') }}" class="btn btn-warning">Return to Dashboard</a>
 
