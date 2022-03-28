@@ -180,7 +180,8 @@ High level testing plan:
   > Opera
 3. All buttons working as intended.
 4. Interactive parts working as intended.
-5. No content areas overlapping other content areas. 
+5. No content areas overlapping other content areas.
+6. Attempts to force errors with HTML forms.
 
 Test Results can be found here: [Test Results](XXX)
 
@@ -220,14 +221,17 @@ User's comments were as follows:
 2. XXX
 
 ## Major Bugs Fixed During Development
-1. XXX
-2. XXX
-3. XXX
+1. Using the Bootstrap modal originally only deleted the first item in a table. For example, if there were three items in the income table: Mortgage, Car and Food, click the delete button for Food, would actually cause Mortgage to delete. Then trying again would delete Car, which would only leave food.
+> This was corrected by using loop.index to ensure the correct item was linked to each different delete button. This was discovered from an older Slack post from igor_ci, found [here](https://code-institute-room.slack.com/archives/C7JQY2RHC/p1610450383324300).
+2. A user could enter a string into the HTML forms where a value was expected. This would cause Matplotlib to attempt to create a pie chart with that string. This caused an error where the user could not reach their dashboard anymore until the record was deleted from MongoDB.
+> This was corrected simply by changing the HTML input type to number, instead of text.
+3. If a user tried to go to a page that did not exist, an error would occur.
+> This was changed where a 404 page was introduced, which tells the user the page is not found, with a link to the homepage.
 
 ## Lighthouse Results
 Images below show the Lighthouse results on both mobile and desktop:
-1. Mobile:<br>![Mobile Lighthouse](XXX)
-1. Desktop:<br>![Desktop Lighthouse](XXX)
+1. Mobile:<br>![Mobile Lighthouse](/static/readme/mobile-lighthouse-home.PNG)
+1. Desktop:<br>![Desktop Lighthouse](/static/readme/desktop-lighthouse-home.PNG)
 
 # Deployment
 ## Project Creation
@@ -241,8 +245,8 @@ Common Git commands were used as follows:
 * git push - used to push the changes to the GitHub repository.
 
 ## Publishing
-To publish the project I performed the following steps:
-1. XXX HOW DID I DEPLOY TO HEROKU?
+The project was published using [Heroku](https://www.heroku.com/), the following steps were performed:
+1. A new app was created on Heroku, where a name was selected with Europe selected as the region.
 2. XXX HOW DID I DEPLOY TO HEROKU?
 3. XXX HOW DID I DEPLOY TO HEROKU?
 4. XXX HOW DID I DEPLOY TO HEROKU?
@@ -259,9 +263,9 @@ To create a local clone of the project you can follow the steps below:
 Would like to say thank you to my mentor Spencer Barriball for his help and guidance throughout the project.
 
 ## Code
-* XXX
-* XXX
+* Thank you to stackoverflow user [akkhil](https://stackoverflow.com/users/2677993/akkhil) for the help with rendering the pie chart images onto the dashboard page, link to the post can be found [here](https://stackoverflow.com/questions/20107414/passing-a-matplotlib-figure-to-html-flask).
+* Thank you to igor_ci with help with the deletion of records via the modal as mentioned above - post can be found [here](https://code-institute-room.slack.com/archives/C7JQY2RHC/p1610450383324300).
+* Used the [Flask documentation](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/) to create the 404 page.
 
 ## Media
-* XXX
-* XXX
+* Thank you to [Mediamodifier](https://unsplash.com/@mediamodifier) with their image that was used for the landing page background.
