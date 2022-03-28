@@ -246,11 +246,13 @@ Common Git commands were used as follows:
 
 ## Publishing
 The project was published using [Heroku](https://www.heroku.com/), the following steps were performed:
-1. A new app was created on Heroku, where a name was selected with Europe selected as the region.
-2. XXX HOW DID I DEPLOY TO HEROKU?
-3. XXX HOW DID I DEPLOY TO HEROKU?
-4. XXX HOW DID I DEPLOY TO HEROKU?
-5. XXX HOW DID I DEPLOY TO HEROKU?
+1. A requirements file and a Procfile was created within [GitPod](https://www.gitpod.io/) and saved.
+  > Requirements file created with: `pip3 freeze –local > requirements.txt`
+  > Procfile created with: `echo web: python app.py > Procfile`
+2. A new app was created on Heroku, where a name was selected with Europe selected as the region.
+3. Within this new app on Heroku, navigate to the "Deploy" tab. Under "Deployment method" click on the "GitHub" icon. From here your GitHub account and Heroku can be linked. Search for the relevent repository name in GitHub in the search area that appears. 
+4. Environment variables are saved within a hidden file, meaning that Heroku does not have access to them. Under "Settings", click on "Reveal Config Vars". Various important ket-value pairs are placed here.
+5. Navigate back to the "Deploy" branch and click "Enable Automatic Deployment". Heroku will now start to gather data from the assocaited GitHub repository. Future `git push` commands in GitPod will save the data to GitHub and to Heroku, where a live version of the project can be found.
 
 ## Local Clone
 To create a local clone of the project you can follow the steps below:
