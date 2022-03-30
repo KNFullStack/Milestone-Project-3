@@ -1,5 +1,5 @@
 ![Landing Page](/static/readme/landing-page.PNG)
-# Milestone Project 3 - XXX
+# Milestone Project 3 - Budgeting Tool
 # Table of Contents
 * [Introduction](XXX)
 * [User Experience Design](XXX)  
@@ -11,9 +11,7 @@
   * [Structure](XXX)
   * [Design](XXX)
     * [Colors](XXX)
-    * [Typography](XXX)
     * [Images](XXX)
-    * [Sounds](XXX)
     * [Wireframes](X)
     * [Design Deviations](XXX)
   * [Limitations](XXX)
@@ -75,11 +73,37 @@ A mockup of the web application can be seen below:
 
 ### User Story Screenshots
 Below are screenshots relating to some of the user stories.
+> Where can I register?
+* Two register buttons available on the landing page.<br>
+![User-Story-1](/static/readme/user-story-1.PNG)
+
+> Can I change the currency that is shown?
+* Selection box to pick the currency you wish to be displayed - found on the dashboard.<br>
+![User-Story-2](/static/readme/user-story-2.PNG)
+
+> Somewhere to view all of the income or outgoings that have been entered.
+* Tables on the dashboard to show this information.<br>
+![User-Story-3](/static/readme/user-story-3.PNG)
+
+> How to edit an previous income or outgoings that are stored.
+* Buttons within the tables on the dashboard for this, as well as deleting records.<br>
+![User-Story-4](/static/readme/user-story-4.PNG)
 
 ## Structure
 Shown below are elements that correspond to some of the User Stories:
-* "thing to correspond to story"
-> "story here"
+* What can I use the web application for?
+* Where can I register?
+* Where can I log in?
+> Landing page contains a very simple sentence to explain, along with two register buttons and login buttons.
+* Can I change the currency that is shown?
+> Within the dashboard there is a selection box for this.
+* How to add new income or outgoings.
+> Two large green buttons on the dashboard for each of these options.
+* Somewhere to view all of the income or outgoings that have been entered.
+> Dashboard contains 2 tables, one for income and one for outgoings.
+* How to edit an previous income or outgoings that are stored.
+* How to delete any income or outgoings that do not apply any more.
+> Buttons for edit and delete found on every record within the tables that show income and outgoings.
 
 ## Design
 ### Colors
@@ -89,11 +113,20 @@ The landing page image is used with thanks to [Mediamodifier](https://unsplash.c
 ### Wireframes
 Wireframes images can be seen below and also found in the "/assets/readme-content" folder. It contains a design for the desktop and mobile version of the dashboard.
 
-* Mobile: <br> ![Mobile Wireframe](XXX)
-* Desktop: <br> ![Desktop Wireframe](XXX)
+* Mobile: <br> ![Mobile Wireframe](/static/readme/Mobile-Dashboard.png)
+* Desktop: <br> ![Desktop Wireframe](/static/readme/Desktop-Dashboard.png)
 
 See link for PDF below:
-* [Wireframe](XXX)
+* [Wireframe](/static/readme/p3-wireframe.pdf)
+
+### Database
+The database contains three different collections:
+1. income
+ > Contains information such as name, value and created by.
+2. outgoings
+ > Contains information such as name, value and created by.
+3. users
+ > Contains information such as username and password.
 
 ### Design Deviations
 Compared to the original Wireframe there have been multiple deviations.
@@ -101,14 +134,16 @@ Compared to the original Wireframe there have been multiple deviations.
 > On mobile devices when there was no income or outgoing, a blank space was displayed in place of the pie charts. This was easy to change with bootstrap to ensure that the other controls (adding income and outgoings) were displayed on top first.
 * Tables displayed a large list of income or outgoings.
 > This was changed to introduce a scroll bar in the income and outgoing tables when a certain table size was reached.
+* There was no currency available for users to select, meaning all values were just arbitrary values.
+> A selection box was added where users could select £, $ or €, which would add the relevant currency icon to all values.
 
 Note: these changes were applied to both the desktop and mobile version of the web application.
 
 ## Limitations
 Currently, there some limitations:
 
-* XXX
-* XXX
+* There is no functionality available for users to reset their passwords if they've been forgotten.
+* Users cannot change the colours of the pie charts that are created.
 
 # Features
 ## Current Features
@@ -121,7 +156,7 @@ Currently, there some limitations:
 ## Future Features
 Features that could be released in subsequent versions include:
 * More chart types could be added. Such as predictive graphs for total savings value based on an amount saved per month.
-* Setting the default currency to GBP (£) and then upon selecting from a number of currencies, the value will update according to current currency exchange rates.
+* Option to select a default currency when registering, then upon selecting a new currency, the value will update according to current exchange rates.
 
 # Technologies
 Technologies used are as follows.
@@ -160,7 +195,7 @@ Technologies used are as follows.
     * Used to validate the CSS code.
 * [JSHint](https://jshint.com/)
     * Used to validate the JavaScript code.
-* [PYTHON VALIDATION](https://extendsclass.com/python-tester.html) XXX CONFIRM IF SUITABLE XXX
+* [Python Validator](http://pep8online.com/)
     * Used to validate the Python code.
 * [MongoDB](https://www.mongodb.com/)
     * Used as the cloud database provider.
@@ -196,7 +231,7 @@ CSS Stylesheet was run through the [W3C CSS Validator](https://jigsaw.w3.org/css
 JavaScript file was run through the [JSHint](https://jshint.com/).
 * WARNINGS? XXX
 ### Python Validation
-Python files were run through the [JSHint](https://jshint.com/).
+Python files were run through the [pep8online](http://pep8online.com/).
 * WARNINGS? XXX
 ## User Scenarios - Testing
 How does the web application design enable the goals of a first time, returning and frequent user?<br>
@@ -268,6 +303,7 @@ Would like to say thank you to my mentor Spencer Barriball for his help and guid
 * Thank you to stackoverflow user [akkhil](https://stackoverflow.com/users/2677993/akkhil) for the help with rendering the pie chart images onto the dashboard page, link to the post can be found [here](https://stackoverflow.com/questions/20107414/passing-a-matplotlib-figure-to-html-flask).
 * Thank you to igor_ci with help with the deletion of records via the modal as mentioned above - post can be found [here](https://code-institute-room.slack.com/archives/C7JQY2RHC/p1610450383324300).
 * Used the [Flask documentation](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/) to create the 404 page.
+* The login and register functionality was adapted from lessons contained with the [Code Institute](https://codeinstitute.net/) course. 
 
 ## Media
 * Thank you to [Mediamodifier](https://unsplash.com/@mediamodifier) with their image that was used for the landing page background.
