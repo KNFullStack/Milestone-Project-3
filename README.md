@@ -66,7 +66,7 @@ A mockup of the web application can be seen below:
   1. Where can I log in?
   2. How to add new income or outgoings.
   3. Somewhere to view all of the income or outgoings that have been entered.
-### Frequent Users
+### Frequent Visitors
 * What would I want to see as a frequent visitor?
   1. How to edit an previous income or outgoings that are stored.
   2. How to delete any income or outgoings that do not apply any more.
@@ -234,14 +234,24 @@ Python files were run through the [pep8online](http://pep8online.com/).
 ## User Scenarios - Testing
 How does the web application design enable the goals of a first time, returning and frequent user?<br>
 ### First Time User
-* XXX STORY
-  * COMMENT ON STORY.
+1. What can I use the web application for?
+  * Unable to be tested. Although, tester did comment it was obvious what the web application was for upon first interactions.
+2. Where can I register?
+  * Clicked on both links and both took user to the register page.
+3. Can I change the currency that is shown?
+  * In the dashboard it is possible, each drop down item was selected and the currency icon for each value updated accordingly.
 ### Returning User
-* XXX STORY
-  * COMMENT ON STORY.
-### Frequent User
-* XXX STORY
-  * COMMENT ON STORY.
+1. Where can I log in?
+  * Clicked on both links and both took user to the login page.
+2. How to add new income or outgoings.
+  * There are two buttons for each of these actions. One for each in both the navigation bar once logged in and on the dashboard. All buttons tested and working correctly to take the user to the correct form.
+3. Somewhere to view all of the income or outgoings that have been entered.
+  * A table can be seen for both the income and outgoings that are added. These tables are present in the dashboard and have a scroll function once a certain height is reached.
+### Frequent Users
+1. How to edit an previous income or outgoings that are stored.
+  * The dashboard contains an edit button that can be easily seen next to any record that is created. Link working as expected and the function works as expected.
+2. How to delete any income or outgoings that do not apply any more.
+  * The dashboard contains a delete button that can be easily seen next to any record that is created. Link working as expected and the function works as expected.
 
 ## User Testing
 A user kindly volunteered to test the web application once overall development was complete.
