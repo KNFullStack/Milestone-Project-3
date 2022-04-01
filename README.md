@@ -260,8 +260,7 @@ User's comments were as follows:
   * WHAT DID I DO? XXX
 
 ## Currently Known Bugs
-1. XXX
-2. XXX
+1. None currently known.
 
 ## Major Bugs Fixed During Development
 1. Using the Bootstrap modal originally only deleted the first item in a table. For example, if there were three items in the income table: Mortgage, Car and Food, click the delete button for Food, would actually cause Mortgage to delete. Then trying again would delete Car, which would only leave food.
