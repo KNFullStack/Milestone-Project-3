@@ -216,7 +216,7 @@ High level testing plan:
 5. No content areas overlapping other content areas.
 6. Attempts to force errors with HTML forms.
 
-Test Results can be found here: [Test Results](XXX)
+Test Results can be found here: [Test Results](/static/readme/test-result.xlsx)
 
 ## Validation
 ### HTML Validation
