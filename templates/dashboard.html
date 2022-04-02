@@ -33,11 +33,12 @@
                                 <!-- Modal -->
                                 <div class="modal fade" id="staticBackdrop{{ loop.index}}income"
                                     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                    aria-labelledby="staticBackdropLabelIncome" aria-hidden="true">
+                                    aria-labelledby="staticBackdropLabelIncome{{loop.index}}" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered ">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabelIncome">Delete Income
+                                                <h5 class="modal-title" id="staticBackdropLabelIncome{{loop.index}}">
+                                                    Delete Income
                                                 </h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
@@ -89,11 +90,12 @@
                                 <!-- Modal -->
                                 <div class="modal fade" id="staticBackdrop{{ loop.index}}outgoing"
                                     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                    aria-labelledby="staticBackdropLabelOutgoing" aria-hidden="true">
+                                    aria-labelledby="staticBackdropLabelOutgoing{{loop.index}}" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered ">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabelOutgoing">Delete Outgoing
+                                                <h5 class="modal-title" id="staticBackdropLabelOutgoing{{loop.index}}">
+                                                    Delete Outgoing
                                                 </h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
@@ -161,11 +163,11 @@
     <div class="row text-center align-items-center justify-content-center">
         <div class="col-lg-6">
             <h3>Income</h3>
-            <img id="incoming_pie" src="data:image/png;base64, {{graph}}" alt="graph" class="img-fluid">
+            <img id="incoming_pie" src="data:image/png;base64,{{graph}}" alt="graph" class="img-fluid">
         </div>
         <div class="col-lg-6">
             <h3>Outgoings</h3>
-            <img id="outgoing_pie" src="data:image/png;base64, {{graph2}}" alt="graph" class="img-fluid">
+            <img id="outgoing_pie" src="data:image/png;base64,{{graph2}}" alt="graph" class="img-fluid">
         </div>
     </div>
 </div>

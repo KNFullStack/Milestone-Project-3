@@ -220,17 +220,39 @@ Test Results can be found here: [Test Results](/static/readme/test-result.xlsx)
 
 ## Validation
 ### HTML Validation
-HTML files were run through the [W3C HTML Validator](https://validator.w3.org/), via the direct input method.
-* WARNINGS? XXX
+The rendered HTML pages were run through the [W3C HTML Validator](https://validator.w3.org/), via the "Validate by URI" or "Validate by Direct Input" methods.
+* [Homepage](http://milestone-project-3-kn.herokuapp.com/) - base.html
+* [Login](http://milestone-project-3-kn.herokuapp.com/login) - login.html
+* [Register](http://milestone-project-3-kn.herokuapp.com/register) - register.html
+  > Warning regarding the lack of a heading. However the section is used to flash messages based on user actions, which does contain a `<h4></h4>` element.
+* dashboard.html - Used Direct Input Method due to authorization needed.
+  > Warning regarding the lack of a heading. However the section is used to flash messages based on user actions, which does contain a `<h4></h4>` element.
+  > Duplicate ID errors occured due to a Jinja for loop being utilised to display each record that is present. This ID is used with a bootstrap modal. This was fixed by using the the `{{ loop.index }}` on the IDs.
+* 404.html - Used Direct Input Method.
+  > Warning regarding the lack of a heading. However the section is used to flash messages based on user actions, which does contain a `<h4></h4>` element.
+* income.html - Used Direct Input Method.
+* outgoing.html - Used Direct Input Method.
+* edit_income.html - Used Direct Input Method.
+* edit_outgoing.html - Used Direct Input Method.
+  > Warning regarding the lack of a heading. However the section is used to flash messages based on user actions, which does contain a `<h4></h4>` element.
+
 ### CSS Validation
 CSS Stylesheet was run through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), via the direct input method.
-* WARNINGS? XXX
+* No warnings or errors.
+
 ### JavaScript Validation
 JavaScript file was run through the [JSHint](https://jshint.com/).
-* WARNINGS? XXX
+* currencyScript.js
+* registerScript.js
+> Missing semicolons picked up in each file, these were corrected.<br>
+> 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).<br>
+> 'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+
 ### Python Validation
 Python files were run through the [pep8online](http://pep8online.com/).
-* WARNINGS? XXX
+* Warnings were found regarding line length, white spaces around assignment operators and spaces in empty lines.
+> These were all corrected and no errors now show. 
+
 ## User Scenarios - Testing
 How does the web application design enable the goals of a first time, returning and frequent user?<br>
 ### First Time User

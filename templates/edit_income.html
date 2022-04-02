@@ -11,7 +11,7 @@
             <form method="POST" action="{{ url_for('edit_income', item_id=item._id) }}">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name of Income</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{ item.name }}" minlength="2"
+                    <input type="text" class="form-control" id="name" name="name" value="{{ item.name }}" minlength="1"
                         maxlength="9" required>
                 </div>
                 <div class="mb-3">

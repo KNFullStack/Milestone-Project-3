@@ -36,7 +36,7 @@ def home():
 
 @app.route("/dashboard")
 def dashboard():
-    if not "user" in session:
+    if "user" not in session:
         flash("Please log in.")
         return redirect(url_for("login"))
 
@@ -53,49 +53,57 @@ def dashboard():
         pie_chart_values_income.append(int(item["value"]))
     total_income = sum(pie_chart_values_income)
     img = BytesIO()
-    plt.pie(pie_chart_values_income, autopct = "%2.0f%%", pctdistance=0.9)
+    plt.pie(pie_chart_values_income, autopct="%2.0f%%", pctdistance=0.9)
     plt.tight_layout()
-    plt.legend(title = "Income:", bbox_to_anchor=(0.9,1), loc="upper left", labels = pie_chart_label_income)
+    plt.legend(title="Income:", bbox_to_anchor=(0.9, 1), loc="upper left",
+               labels=pie_chart_label_income)
     plt.savefig(img, format="png")
     plt.close()
     img.seek(0)
     graph = base64.b64encode(img.getvalue()).decode("utf8")
 
     # outgoings chart
-    pie_chart_values_outgoings = []
+    piechart_values_outgoings = []
     pie_chart_label_outgoings = []
     outgoings_list = list(mongo.db.outgoings.find({"created_by": user}))
     for item in outgoings_list:
         pie_chart_label_outgoings.append(item["name"].capitalize())
-        pie_chart_values_outgoings.append(int(item["value"]))
-    total_outgoings = sum(pie_chart_values_outgoings)
+        piechart_values_outgoings.append(int(item["value"]))
+    total_outgoings = sum(piechart_values_outgoings)
     img2 = BytesIO()
-    plt.pie(pie_chart_values_outgoings, autopct = "%2.0f%%", pctdistance=0.9)
+    plt.pie(piechart_values_outgoings, autopct="%2.0f%%", pctdistance=0.9)
     plt.tight_layout()
-    plt.legend(title = "Outgoings:", bbox_to_anchor=(0.9,1), loc="upper left", labels = pie_chart_label_outgoings)
+    plt.legend(title="Outgoings:", bbox_to_anchor=(0.9, 1), loc="upper left",
+               labels=pie_chart_label_outgoings)
     plt.savefig(img2, format="png")
     plt.close()
     img.seek(0)
     graph2 = base64.b64encode(img2.getvalue()).decode("utf8")
 
-
     net = total_income - total_outgoings
-    return render_template("dashboard.html", income=income, outgoings=outgoings, graph=graph, graph2=graph2,
-    pie_chart_label_outgoings=pie_chart_label_outgoings, pie_chart_values_outgoings=pie_chart_values_outgoings,
-    outgoings_list=outgoings_list, total_outgoings=total_outgoings, total_income=total_income, net=net)
+
+    return render_template("dashboard.html", income=income,
+                           outgoings=outgoings, graph=graph, graph2=graph2,
+                           pie_chart_label_outgoings=pie_chart_label_outgoings,
+                           piechart_values_outgoings=piechart_values_outgoings,
+                           outgoings_list=outgoings_list,
+                           total_outgoings=total_outgoings,
+                           total_income=total_income, net=net)
 
 
-@app.route("/login", methods=["GET","POST"])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     if "user" in session:
         flash("You are already logged in.")
         return redirect(url_for("dashboard"))
 
     if request.method == "POST":
-        existing_user = mongo.db.users.find_one({"username": request.form.get("username").lower()})
+        existing_user = mongo.db.users.find_one({"username": request.form.
+                                                get("username").lower()})
 
         if existing_user:
-            if check_password_hash(existing_user["password"], request.form.get("password")):
+            if check_password_hash(existing_user["password"], request.form.
+                                   get("password")):
                 session["user"] = request.form.get("username").lower()
                 session.permanent = True
                 flash("Welcome back, {}.".format(request.form.get("username")))
@@ -104,7 +112,7 @@ def login():
             else:
                 flash("Incorrect Username and/or Password.")
                 return redirect(url_for("login"))
-    
+
         else:
             flash("Incorrect Username and/or Password.")
             return redirect(url_for("login"))
@@ -112,14 +120,15 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/register", methods=["GET","POST"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     if "user" in session:
         flash("You must log out first.")
         return redirect(url_for("dashboard"))
-    
+
     if request.method == "POST":
-        existing_user = mongo.db.users.find_one({"username": request.form.get("username").lower()})
+        existing_user = mongo.db.users.find_one({"username": request.form.
+                                                get("username").lower()})
 
         if existing_user:
             flash("Username already taken!")
@@ -150,13 +159,13 @@ def logout():
         return redirect(url_for('login'))
 
 
-@app.route("/add_income", methods=["GET","POST"])
+@app.route("/add_income", methods=["GET", "POST"])
 def add_income():
-    if not "user" in session:
+    if "user" not in session:
         flash("Please log in.")
         return redirect(url_for("login"))
     if request.method == "POST":
-        user = session["user"].lower()    
+        user = session["user"].lower()
         income = {
             "name": request.form.get("name").lower(),
             "value": request.form.get("value").lower(),
@@ -169,13 +178,13 @@ def add_income():
     return render_template("income.html")
 
 
-@app.route("/add_outgoing", methods=["GET","POST"])
+@app.route("/add_outgoing", methods=["GET", "POST"])
 def add_outgoing():
-    if not "user" in session:
+    if "user" not in session:
         flash("Please log in.")
         return redirect(url_for("login"))
     if request.method == "POST":
-        user = session["user"].lower()    
+        user = session["user"].lower()
         outgoing = {
             "name": request.form.get("name").lower(),
             "value": request.form.get("value").lower(),
@@ -187,20 +196,24 @@ def add_outgoing():
     return render_template("outgoing.html")
 
 
-@app.route("/edit_income/<item_id>", methods=["GET","POST"])
+@app.route("/edit_income/<item_id>", methods=["GET", "POST"])
 def edit_income(item_id):
 
     if request.method == "POST":
         user = session["user"].lower()
         old_name = mongo.db.income.find_one({"_id": ObjectId(item_id)})["name"]
-        old_value = mongo.db.income.find_one({"_id": ObjectId(item_id)})["value"]
-        income = { "$set" :{
+        old_value = mongo.db.income.find_one(
+                    {"_id": ObjectId(item_id)})["value"]
+        income = {"$set": {
             "name": request.form.get("name").lower(),
             "value": request.form.get("value").lower(),
             "created_by": user
         }}
-        
-        if old_name == income["$set"]["name"] and old_value == income["$set"]["value"]:
+
+        name_comparison_i = income["$set"]["name"]
+        value_comparison_i = income["$set"]["value"]
+
+        if old_name == name_comparison_i and old_value == value_comparison_i:
             flash("There is no change to make.")
             return redirect(url_for("dashboard"))
 
@@ -211,20 +224,25 @@ def edit_income(item_id):
     return render_template("edit_income.html", item=item)
 
 
-@app.route("/edit_outgoing/<item_id>", methods=["GET","POST"])
+@app.route("/edit_outgoing/<item_id>", methods=["GET", "POST"])
 def edit_outgoing(item_id):
 
     if request.method == "POST":
         user = session["user"].lower()
-        old_name = mongo.db.outgoings.find_one({"_id": ObjectId(item_id)})["name"]
-        old_value = mongo.db.outgoings.find_one({"_id": ObjectId(item_id)})["value"]
-        outgoing = { "$set" :{
+        old_name = mongo.db.outgoings.find_one(
+                   {"_id": ObjectId(item_id)})["name"]
+        old_value = mongo.db.outgoings.find_one(
+                   {"_id": ObjectId(item_id)})["value"]
+        outgoing = {"$set": {
             "name": request.form.get("name").lower(),
             "value": request.form.get("value").lower(),
             "created_by": user
         }}
 
-        if old_name == outgoing["$set"]["name"] and old_value == outgoing["$set"]["value"]:
+        name_comparison_o = outgoing["$set"]["name"]
+        value_comparison_o = outgoing["$set"]["value"]
+
+        if old_name == name_comparison_o and old_value == value_comparison_o:
             flash("There is no change to make.")
             return redirect(url_for("dashboard"))
 
@@ -255,6 +273,5 @@ def not_found(e):
 
 
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),
-    port=int(os.environ.get("PORT")),
-    debug=True)
+    app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")),
+            debug=True)
