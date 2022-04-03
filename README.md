@@ -319,7 +319,7 @@ Common Git commands were used as follows:
 ## Publishing
 The project was published using [Heroku](https://www.heroku.com/), the following steps were performed:
 1. A requirements file and a Procfile was created within [GitPod](https://www.gitpod.io/) and saved.
-  > Requirements file created with: `pip3 freeze –local > requirements.txt`
+  > Requirements file created with: `pip3 freeze –local > requirements.txt`<br>
   > Procfile created with: `echo web: python app.py > Procfile`
 2. A new app was created on Heroku, where a name was selected with Europe selected as the region.
 3. Within this new app on Heroku, navigate to the "Deploy" tab. Under "Deployment method" click on the "GitHub" icon. From here your GitHub account and Heroku can be linked. Search for the relevent repository name in GitHub in the search area that appears. 
