@@ -114,20 +114,23 @@ The landing page image is used with thanks to [Mediamodifier](https://unsplash.c
 ### Wireframes
 Wireframes images can be seen below and also found in the "/assets/readme-content" folder. It contains a design for the desktop and mobile version of the dashboard.
 
-* Mobile: <br> ![Mobile Wireframe](/static/readme/Mobile-Dashboard.png)
-* Desktop: <br> ![Desktop Wireframe](/static/readme/Desktop-Dashboard.png)
+* Mobile: <br> ![Mobile Wireframe](/static/readme/mobile-dashboard.png)
+* Desktop: <br> ![Desktop Wireframe](/static/readme/desktop-dashboard.png)
 
 See link for PDF below:
 * [Wireframe](/static/readme/p3-wireframe.pdf)
 
 ### Database
 The database contains three different collections:
-1. income
- > Contains information such as name, value and created by.
-2. outgoings
- > Contains information such as name, value and created by.
-3. users
+1. users
  > Contains information such as username and password.
+2. income
+ > Contains information such as name, value and created by.
+3. outgoings
+ > Contains information such as name, value and created by.
+
+Image below shows the above information in table format: <br>
+![database images](/static/readme/database.PNG)
 
 ### Design Deviations
 Compared to the original Wireframe there have been multiple deviations.
@@ -205,7 +208,9 @@ Technologies used are as follows.
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
     * Python based web framework used for the backend of the web application.
 * [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
-    * Template engine for Python. Used for things like template inheritance and displaying Python variables on the front end. 
+    * Template engine for Python. Used for things like template inheritance and displaying Python variables on the front end.
+* [dbdiagram](https://dbdiagram.io/home)
+    * Used to create a simple image to show the database collections.
 
 # Testing
 High level testing plan:
@@ -225,17 +230,17 @@ The rendered HTML pages were run through the [W3C HTML Validator](https://valida
 * [Homepage](http://milestone-project-3-kn.herokuapp.com/) - base.html
 * [Login](http://milestone-project-3-kn.herokuapp.com/login) - login.html
 * [Register](http://milestone-project-3-kn.herokuapp.com/register) - register.html
-  > Warning regarding the lack of a heading. However the section is used to flash messages based on user actions, which does contain a `<h4></h4>` element.
-* dashboard.html - Used Direct Input Method due to authorization needed.
-  > Warning regarding the lack of a heading. However the section is used to flash messages based on user actions, which does contain a `<h4></h4>` element.
-  > Duplicate ID errors occured due to a Jinja for loop being utilised to display each record that is present. This ID is used with a bootstrap modal. This was fixed by using the the `{{ loop.index }}` on the IDs.
 * 404.html - Used Direct Input Method.
-  > Warning regarding the lack of a heading. However the section is used to flash messages based on user actions, which does contain a `<h4></h4>` element.
 * income.html - Used Direct Input Method.
 * outgoing.html - Used Direct Input Method.
 * edit_income.html - Used Direct Input Method.
 * edit_outgoing.html - Used Direct Input Method.
-  > Warning regarding the lack of a heading. However the section is used to flash messages based on user actions, which does contain a `<h4></h4>` element.
+  > No issues to report.
+* dashboard.html - Used Direct Input Method due to authorization needed.
+  > Duplicate ID errors occured due to a Jinja for loop being utilised to display each record that is present. This ID is used with a bootstrap modal. This was fixed by using the the `{{ loop.index }}` on the IDs.
+* All pages originally had the following warning:
+  > Warning regarding the lack of a heading. The section is used to flash messages based on user actions, which does contain a `<h4></h4>` element.<br>
+  > This `<section></section>` was subsequently changed to a `<div></div>`. This fixed the problem and retained the functionality.
 
 ### CSS Validation
 CSS Stylesheet was run through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), via the direct input method.
@@ -279,8 +284,10 @@ How does the web application design enable the goals of a first time, returning 
 ## User Testing
 A user kindly volunteered to test the web application once overall development was complete.
 User's comments were as follows:
-* XXX WHAT DID THEY NOTICE?
-  * WHAT DID I DO? XXX
+* Clicking a button to return to the homepage made the user think that they were now logged out.
+  * If the user is logged in and returns to the homepage, a new button appears to take them back to the Dashboard.
+* The forms for Edit Income and Edit Outgoings had buttons with text "Edit Income" and "Edit Outgoings", respectively. User stated that this was confusing as the Edit button has already been clicked.
+  * Both of these buttons on their respective edit pages were changed to read "Confirm" instead.
 
 ## Currently Known Bugs
 1. None currently known.
