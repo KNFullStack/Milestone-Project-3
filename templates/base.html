@@ -69,6 +69,9 @@
                 <p>Use this tool to help track your income and outgoings.</p>
                 <a class="btn btn-primary mx-auto mb-2" href="{{ url_for('login') }}">Login</a>
                 <a class="btn btn-warning mx-auto mb-2" href="{{ url_for('register') }}">Register</a>
+                {% if session.user %}
+                <a class="btn btn-success mx-auto mb-2" href="{{ url_for('dashboard') }}">Dashboard</a>
+                {% endif %}
             </div>
         </div>
     </div>
