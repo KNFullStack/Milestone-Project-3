@@ -18,6 +18,8 @@ function confirmPassword(event) {
     return;
 }
 
+
+// Function to show password that has been typed in, useful if they do not match
 showPasswords.addEventListener("change", () => {
     if (showPasswords.checked) {
         passwordOne.type = "text";

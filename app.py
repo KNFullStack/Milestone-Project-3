@@ -12,6 +12,7 @@ from io import BytesIO
 import base64
 from flask_humanize import Humanize
 
+
 if os.path.exists("env.py"):
     import env
 
@@ -28,12 +29,13 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
+# Homepage route
 @app.route("/")
 def home():
     return render_template("base.html")
 
 
+# Dashboard route
 @app.route("/dashboard")
 def dashboard():
     if "user" not in session:
@@ -43,6 +45,7 @@ def dashboard():
     user = session["user"].lower()
     income = mongo.db.income.find({"created_by": user})
     outgoings = mongo.db.outgoings.find({"created_by": user})
+
 
     # income chart
     pie_chart_values_income = []
@@ -61,6 +64,7 @@ def dashboard():
     plt.close()
     img.seek(0)
     graph = base64.b64encode(img.getvalue()).decode("utf8")
+
 
     # outgoings chart
     piechart_values_outgoings = []
@@ -91,6 +95,7 @@ def dashboard():
                            total_income=total_income, net=net)
 
 
+# Login route
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if "user" in session:
@@ -119,7 +124,7 @@ def login():
 
     return render_template("login.html")
 
-
+# Register route
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if "user" in session:
@@ -148,6 +153,7 @@ def register():
     return render_template("register.html")
 
 
+# Logout route
 @app.route("/logout")
 def logout():
     if "user" in session:
@@ -159,6 +165,7 @@ def logout():
         return redirect(url_for('login'))
 
 
+# Add income route
 @app.route("/add_income", methods=["GET", "POST"])
 def add_income():
     if "user" not in session:
@@ -178,6 +185,7 @@ def add_income():
     return render_template("income.html")
 
 
+# Add outgoing route
 @app.route("/add_outgoing", methods=["GET", "POST"])
 def add_outgoing():
     if "user" not in session:
@@ -196,6 +204,7 @@ def add_outgoing():
     return render_template("outgoing.html")
 
 
+# Edit income route
 @app.route("/edit_income/<item_id>", methods=["GET", "POST"])
 def edit_income(item_id):
 
@@ -224,6 +233,7 @@ def edit_income(item_id):
     return render_template("edit_income.html", item=item)
 
 
+# Add outgoing route
 @app.route("/edit_outgoing/<item_id>", methods=["GET", "POST"])
 def edit_outgoing(item_id):
 
@@ -253,6 +263,7 @@ def edit_outgoing(item_id):
     return render_template("edit_outgoing.html", item=item)
 
 
+# Delete income route
 @app.route("/delete_income/<item_id>")
 def delete_income(item_id):
     mongo.db.income.delete_one({"_id": ObjectId(item_id)})
@@ -260,6 +271,7 @@ def delete_income(item_id):
     return redirect(url_for("dashboard"))
 
 
+# Delete outgoing route
 @app.route("/delete_outgoing/<item_id>")
 def delete_outgoing(item_id):
     mongo.db.outgoings.delete_one({"_id": ObjectId(item_id)})
@@ -267,6 +279,7 @@ def delete_outgoing(item_id):
     return redirect(url_for("dashboard"))
 
 
+# 404 page created in case of errors - can return to homepage
 @app.errorhandler(404)
 def not_found(e):
     return render_template("404.html"), 404
