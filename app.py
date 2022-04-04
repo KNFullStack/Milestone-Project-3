@@ -1,15 +1,14 @@
 import os
+from datetime import timedelta
+from io import BytesIO
+import base64
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import timedelta
 import matplotlib.pyplot as plt
-import numpy as np
-from io import BytesIO
-import base64
 from flask_humanize import Humanize
 
 
@@ -46,8 +45,7 @@ def dashboard():
     income = mongo.db.income.find({"created_by": user})
     outgoings = mongo.db.outgoings.find({"created_by": user})
 
-
-    # income chart
+# income chart
     pie_chart_values_income = []
     pie_chart_label_income = []
     income_list = list(mongo.db.income.find({"created_by": user}))
@@ -64,7 +62,6 @@ def dashboard():
     plt.close()
     img.seek(0)
     graph = base64.b64encode(img.getvalue()).decode("utf8")
-
 
     # outgoings chart
     piechart_values_outgoings = []
