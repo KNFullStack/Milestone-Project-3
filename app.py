@@ -29,14 +29,19 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 # Homepage route
+
+
 @app.route("/")
 def home():
+    """ homepage route that renders the base.html document """
     return render_template("base.html")
 
 
 # Dashboard route
 @app.route("/dashboard")
 def dashboard():
+    """ dashboard route that renders a dashboard with
+    pie charts and tables with values that have been entered """
     if "user" not in session:
         flash("Please log in.")
         return redirect(url_for("login"))
@@ -95,6 +100,7 @@ def dashboard():
 # Login route
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """ login functionality """
     if "user" in session:
         flash("You are already logged in.")
         return redirect(url_for("dashboard"))
@@ -122,8 +128,11 @@ def login():
     return render_template("login.html")
 
 # Register route
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """ register functionality """
     if "user" in session:
         flash("You must log out first.")
         return redirect(url_for("dashboard"))
@@ -153,6 +162,7 @@ def register():
 # Logout route
 @app.route("/logout")
 def logout():
+    """ logout functionality """
     if "user" in session:
         flash("You have been logged out.")
         session.pop("user")
@@ -165,6 +175,7 @@ def logout():
 # Add income route
 @app.route("/add_income", methods=["GET", "POST"])
 def add_income():
+    """ functionality to add an income """
     if "user" not in session:
         flash("Please log in.")
         return redirect(url_for("login"))
@@ -185,6 +196,7 @@ def add_income():
 # Add outgoing route
 @app.route("/add_outgoing", methods=["GET", "POST"])
 def add_outgoing():
+    """ functionality to add an outgoing """
     if "user" not in session:
         flash("Please log in.")
         return redirect(url_for("login"))
@@ -204,7 +216,7 @@ def add_outgoing():
 # Edit income route
 @app.route("/edit_income/<item_id>", methods=["GET", "POST"])
 def edit_income(item_id):
-
+    """ functionality to edit an income """
     if request.method == "POST":
         user = session["user"].lower()
         old_name = mongo.db.income.find_one({"_id": ObjectId(item_id)})["name"]
@@ -233,7 +245,7 @@ def edit_income(item_id):
 # Add outgoing route
 @app.route("/edit_outgoing/<item_id>", methods=["GET", "POST"])
 def edit_outgoing(item_id):
-
+    """ functionality to edit an outgoing """
     if request.method == "POST":
         user = session["user"].lower()
         old_name = mongo.db.outgoings.find_one(
@@ -263,6 +275,7 @@ def edit_outgoing(item_id):
 # Delete income route
 @app.route("/delete_income/<item_id>")
 def delete_income(item_id):
+    """ functionality to delete an income """
     mongo.db.income.delete_one({"_id": ObjectId(item_id)})
     flash("Income Removed")
     return redirect(url_for("dashboard"))
@@ -271,6 +284,7 @@ def delete_income(item_id):
 # Delete outgoing route
 @app.route("/delete_outgoing/<item_id>")
 def delete_outgoing(item_id):
+    """ functionality to delete an outgoing """
     mongo.db.outgoings.delete_one({"_id": ObjectId(item_id)})
     flash("Outgoing Removed")
     return redirect(url_for("dashboard"))
@@ -279,6 +293,7 @@ def delete_outgoing(item_id):
 # 404 page created in case of errors - can return to homepage
 @app.errorhandler(404)
 def not_found(e):
+    """ handles a 404 error where a specific 404.html document is displayed """
     return render_template("404.html"), 404
 
 
