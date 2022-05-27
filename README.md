@@ -135,7 +135,7 @@ Image below shows the above information in table format: <br>
 
 ### Relational vs Non-Relational Database
 
-An email was sent out regarding the use of Relational vs Non-Relational databases as there was a change in the learning outcomes. Prior to this email a non-relational database system was chosen, and development with this database was complete before the email was receieved. The design trade-off that can occur due to this choice has been understood, as well as how the elements of a relational and non-relational database map to one another. Below shows a basic diagramme to show this: <br>
+An email was sent out regarding the use of Relational vs Non-Relational databases as there was a change in the learning outcomes. Prior to this email a non-relational database system was chosen, and development with this database was complete before the email was receieved. The design trade-off that can occur due to this choice has been understood, as well as how the elements of a relational and non-relational database map to one another. Examples of databases that could have been chosen include MySQL and PostgreSQL. Below shows a basic diagramme to show this: <br>
 ![database choice](/static/readme/database-choice.PNG)
 
 ### Design Deviations
